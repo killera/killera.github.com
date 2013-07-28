@@ -26,12 +26,11 @@
 
     
     <!-- fav and touch icons -->
-  <!-- Update these with your own images
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
+  <!--&lt;!&ndash; Update these with your own images-->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/favicon3.ico">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon3.ico">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon3.ico">
   </head>
 
   <body>
@@ -64,10 +63,10 @@
                   </a>
                 </li>
               {% endif %}
-              {% if site.author.googleplus %}
+              {% if site.author.weibo %}
                 <li>
-                  <a href="https://plus.google.com/{{ site.author.googleplus }}" class="zocial googleplus icon" target="_blank">
-                    <span class="hidden-desktop">Google+</span>
+                  <a href="http://weibo.com/u/{{ site.author.weibo }}" class="zocial weibo icon" target="_blank">
+                    <span class="hidden-desktop">Sina Weibo</span>
                   </a>
                 </li>
               {% endif %}    
@@ -87,7 +86,7 @@
               {% endif %}           
               {% if site.author.linkedin %}
                 <li>
-                  <a href="http://www.linkedin.com/in/{{ site.author.linkedin }}" class="zocial linkedin icon" target="_blank">
+                  <a href="http://www.linkedin.com/pub/{{ site.author.linkedin }}/1b/2bb/126/" class="zocial linkedin icon" target="_blank">
                     <span class="hidden-desktop">LinkedIn</span>
                   </a>
                 </li>
