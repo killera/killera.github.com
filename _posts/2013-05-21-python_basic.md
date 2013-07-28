@@ -17,13 +17,14 @@ layout: post
 what's the max?  
 do we need to consider the overflow?
 
-<pre><code class="python">
+{% highlight python %}
 import sys
 print sys.maxint
 a = sys.maxint * 2
 print a
 type(a)
-</code></pre>
+{% endhighlight %}
+
 
 ##string:
 **There is no char type.**
@@ -32,31 +33,34 @@ type(a)
 
 **concat string:**
 
-<pre><code class="python">
+{% highlight python %}
 'a'*80
 'a'+'b'
 '%s %s' % ('a', 'b')
-</code></pre>
+{% endhighlight %}
+
 
 **convert to string**
 
-<pre><code class="python">
+{% highlight python %}
 'a' + 1 #?
 'a' + str(1)
 str('a')
 repr('a')
 'a'+repr('a')
-</code></pre>
+{% endhighlight %}
+
 
 **the methods of str**
 
-<pre><code class="python">
+{% highlight python %}
 dir('a')
-</code></pre>
+{% endhighlight %}
+
 
 ##None, True, False, is
 
-<pre><code class="python">
+{% highlight python %} 
 None, 0, False
 type(None)  	#NoneType
 type(False)  	#bool
@@ -64,18 +68,19 @@ None is 0		#False
 True is 1		#False
 True is not 1	#False
 True == 1		#True
-</code></pre>
+{% endhighlight %} 
 
 ## and or
 
-<pre><code class="python">
+{% highlight python %} 
 1 and 2			#2
 1 or 2			#1
-</code></pre>
+{% endhighlight %}
+
 
 ##list
 
-<pre><code class="python">
+{% highlight python %} 
 [], list()
 a = [1, 'a']
 a[0], a[1], a[2]
@@ -90,20 +95,20 @@ a[2:8:3]
 a[-1]  		#[9]
 a[-3:-1]  	#[7, 8]
 a[::-1]  	#[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-</code></pre>
+{% endhighlight %} 
 
 ###use list as stack, queue
 
-<pre><code class="python">
+{% highlight python %} 
 dir(list)
 a.pop()
 a.append(11)
 a.pop(0)
-</code></pre>
+{% endhighlight %} 
 
 ##tuple:
 
-<pre><code class="python">
+{% highlight python %} 
 1,2
 1,
 (1,2)
@@ -115,197 +120,210 @@ a,b = 1,2
 a,b = b,a
 ()
 a, _ = 1, 2
-</code></pre>
+{% endhighlight %} 
 
 ##dict
-<pre><code class="python">
+{% highlight python %} 
 {}, dict()
 d = {1:2,'a':'b'}
 d['c']
 d.get('c')
-</code></pre>
+{% endhighlight %} 
 
 ##useful libs
-    import collections
+{% highlight python %}
+import collections
+{% endhighlight %}
 
 ##set
-    a = set([1,2,1])
+{% highlight python %}
+a = set([1,2,1])
+{% endhighlight %}
 
 ##generator expression && list comprehension
-
-    a = (i for i in range(10))
-    b = [i for i in range(10)]
-    c = [i for i in range(10) if i % 2]
-    filter, map, reduce
-    filter(lambda x: x%2, range(10))
-    filter(None, range(10))
-    map(lambda x:x+3, a)
-    reduce(lambda x,y:x*y, [1,2,3,4,5], 10) #((((((10*1)*2)*3)*4)*5)
+{% highlight python %}
+a = (i for i in range(10))
+b = [i for i in range(10)]
+c = [i for i in range(10) if i % 2]
+filter, map, reduce
+filter(lambda x: x%2, range(10))
+filter(None, range(10))
+map(lambda x:x+3, a)
+reduce(lambda x,y:x*y, [1,2,3,4,5], 10) #((((((10*1)*2)*3)*4)*5)
+{% endhighlight %}
 
 ##yield
+{% highlight python %}
+def fab(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n += 1
 
-    def fab(max):
-        n, a, b = 0, 0, 1
-        while n < max:
-            yield b
-            a, b = b, a + b
-            n += 1
+g = fab(30)
 
-    g = fab(30)
-
-    for i in g:
-        print i
+for i in g:
+    print i
+{% endhighlight %}
 
 ##class and function
 
 ### classic class and new-style class
+{% highlight python %}
+class A: pass
+class A(object):
+    def __init__(self):
+        self._name = 'a'
+        self.__id = 1
 
-    class A: pass
-    class A(object):
-        def __init__(self):
-            self._name = 'a'
-            self.__id = 1
+    def func(self):
+        pass
 
-        def func(self):
-            pass
+    def _func(self):
+        pass
 
-        def _func(self):
-            pass
+    def __func(self):
+        pass
 
-        def __func(self):
-            pass
+if __name__ == '__main__':
+    a = A()
+    print a._name
+    print dir(a)
+    print a._A__id
 
-    if __name__ == '__main__':
-        a = A()
-        print a._name
-        print dir(a)
-        print a._A__id
-
-    def fun():
-        return 1
+def fun():
+    return 1
+{% endhighlight %}
 
 ###class variable and instance variable
+{% highlight python %}
+class A(object):
+    _name = 'b'
 
-    class A(object):
-        _name = 'b'
-
-        def __init__(self):
-            self._name = 'a'
-            self.__id = 1
+    def __init__(self):
+        self._name = 'a'
+        self.__id = 1
 
 
-    if __name__ == '__main__':
-        a = A()
-        print a._name
-        print dir(a)
-        print a._A__id
-        print A._name
-        del a._name
-        print a._name
+if __name__ == '__main__':
+    a = A()
+    print a._name
+    print dir(a)
+    print a._A__id
+    print A._name
+    del a._name
+    print a._name
+{% endhighlight %}
 
 ### class method
+{% highlight python %}
+class A(object):
+    def __init__(self, name):
+        self.name = name
 
-    class A(object):
-        def __init__(self, name):
-            self.name = name
+    def __str__(self):
+        return "<%s>: %s" % (self.__class__, self.name)
 
-        def __str__(self):
-            return "<%s>: %s" % (self.__class__, self.name)
-
-        @classmethod
-        def create(cls, name):
-            return cls(name)
+    @classmethod
+    def create(cls, name):
+        return cls(name)
 
 
-    class B(A):
-        pass
-    a = A.create('haha')
-    print a
+class B(A):
+    pass
+a = A.create('haha')
+print a
 
-    b = B.create('hehe')
-    print b
+b = B.create('hehe')
+print b
+{% endhighlight %}
 
 
 ##exception
 
 ###try, raise, except, finnaly
+{% highlight python %}
+class B:
+    pass
+class C(B):
+    pass
+class D(C):
+    pass
 
-    class B:
-        pass
-    class C(B):
-        pass
-    class D(C):
-        pass
-
-    for c in [B, C, D]:
-        try:
-            raise c()
-        except D:
-            print "D"
-        except C:
-            print "C"
-        except B:
-            print "B"
-        finally:
-            print "over"
+for c in [B, C, D]:
+    try:
+        raise c()
+    except D:
+        print "D"
+    except C:
+        print "C"
+    except B:
+        print "B"
+    finally:
+        print "over"
+{% endhighlight %}
 
 ##decorators
 ###bad example
+{% highlight python %}
+def wrapper(func):
+    print '##before %s:' % func.__name__
+    return func
 
-    def wrapper(func):
-        print '##before %s:' % func.__name__
-        return func
-
-    @wrapper
-    def say(something):
-        print something
+@wrapper
+def say(something):
+    print something
 
 
-    say('yeah')
-    say('hello, world')
+say('yeah')
+say('hello, world')
+{% endhighlight %}
 
 ###without arguments
+{% highlight python %}
+def wrapper2(func):
+    def f(args):
+        print '##before %s:' % func.__name__
+        result = func(args)
+        print '##after %s:' % func.__name__
+        return result
+    return f
 
-    def wrapper2(func):
-        def f(args):
-            print '##before %s:' % func.__name__
-            result = func(args)
-            print '##after %s:' % func.__name__
-            return result
-        return f
 
+@wrapper2
+def say(something):
+    print something
 
-    @wrapper2
-    def say(something):
-        print something
-
-    say('yeah')
-    say('hello, world')
+say('yeah')
+say('hello, world')
+{% endhighlight %}
 
 ###with arguments
+{% highlight python %}
+def wrapper3(*arguments):
+    def _wrapper3(function):
+        def _fun_wrapper(*args, **kwargs):
+            print '>>>>>'
+            print '###', arguments
+            result = function(*args, **kwargs)
+            print '<<<<<'
+            return result
+        return _fun_wrapper
+    return _wrapper3
 
-    def wrapper3(*arguments):
-        def _wrapper3(function):
-            def _fun_wrapper(*args, **kwargs):
-                print '>>>>>'
-                print '###', arguments
-                result = function(*args, **kwargs)
-                print '<<<<<'
-                return result
-            return _fun_wrapper
-        return _wrapper3
 
+@wrapper3('a', 'b')
+def say(name):
+    print 'yoyo', name
 
-    @wrapper3('a', 'b')
-    def say(name):
-        print 'yoyo', name
-
-    say('thoughtworks')
+say('thoughtworks')
+{% endhighlight %}
 
 ####property
 #####Way 1
 
-<pre><code class="python">
+{% highlight python %} 
 class C(object):
     def __init__(self):
         self._x = 'xxx'
@@ -325,11 +343,11 @@ c = C()
 print c.x
 c.x = 3
 print c.x
-</code></pre>
+{% endhighlight %} 
 
 #####Way 2
 
-<pre><code class="python">
+{% highlight python %} 
 class TestProp(object):
     @property
     def x(self):
@@ -341,7 +359,7 @@ class TestProp(object):
         print 'called setter'
         self._x = value
 
-</code></pre>
+{% endhighlight %} 
 
 
 ## materials

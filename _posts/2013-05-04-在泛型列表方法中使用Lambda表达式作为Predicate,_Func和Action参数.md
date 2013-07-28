@@ -6,6 +6,8 @@ layout: post
 description: fdsfdsafsdaffdsafsad
 ---
 
+参见[原文链接]
+
 
 ##简介
 
@@ -29,16 +31,20 @@ description: fdsfdsafsdaffdsafsad
 
 本文的所有例子使用同一份的公共代码，以下是业务实体：
 
-    public class InventoryItem
-    {
-        public int ID { get; set; }
-        public int NumberInStock { get; set; }
-        public double UnitCost { get; set; }
-    }
+{% highlight csharp %}
+public class InventoryItem
+{
+    public int ID { get; set; }
+    public int NumberInStock { get; set; }
+    public double UnitCost { get; set; }
+}
+{% endhighlight %}
 
 这是使用的列表成员变量。
 
-    private List<InventoryItem> _inventoryList = new List<InventoryItem>();
+{% highlight csharp %}
+private List<InventoryItem> _inventoryList = new List<InventoryItem>();
+{% endhighlight %}
 
 
 这是列表中存储的内容：
@@ -49,56 +55,65 @@ description: fdsfdsafsdaffdsafsad
 ##带Predicate参数的列表方法
 
 泛型列表类的`Find`方法是一个使用Predicate作为参数的例子。为了创建一个Predicate类，让我们先看看一个典型的查找是如何完成的。对于我而言，`foreach`方法是我最好的朋友，无论我是使用泛型列表，ArrayList或是其他任何数据结构。例子如下：
-
-    public InventoryItem FindInventoryForeach(int inventoryID)
+{% highlight csharp %}
+public InventoryItem FindInventoryForeach(int inventoryID)
+{
+    foreach (InventoryItem item in _inventoryList)
     {
-        foreach (InventoryItem item in _inventoryList)
-        {
-            if (item.ID == inventoryID)
-                return item;
-        }
-
-        return null;
+        if (item.ID == inventoryID)
+            return item;
     }
+
+    return null;
+}
+{% endhighlight %}
 
 
 现在，有一个更好的方式来完成这个一般性工作。泛型列表类通过一个内置的`Find`方法来实现它。传给`Find`方法的参数是泛型类。还记得Predicate的简单定义吧：*“一种委托，带参数，并且参数在代码块中被使用，永远返回布尔类型”*。在C#中，一个内联的委托创建一个匿名方法，这可以被赋值给Predicate变量。Predicate变量然后就可以像下面这样传给`Find`方法：
 
-    public InventoryItem FindInventoryPredicateDelegate(int inventoryID)
+{% highlight csharp %}
+public InventoryItem FindInventoryPredicateDelegate(int inventoryID)
+{
+    Predicate<InventoryItem> pred = delegate(InventoryItem item)
     {
-        Predicate<InventoryItem> pred = delegate(InventoryItem item)
-        {
-            return item.ID == inventoryID;
-        };
+        return item.ID == inventoryID;
+    };
 
-        return _inventoryList.Find(pred);
-    }
+    return _inventoryList.Find(pred);
+}
+{% endhighlight %}
 
 如果你想保存委托并重用，这非常有用。当然委托也可以简单地传给`Find`方法，如下：
 
-    public InventoryItem FindInventoryDelegate(int inventoryID)
+{% highlight csharp %}
+public InventoryItem FindInventoryDelegate(int inventoryID)
+{
+    return _inventoryList.Find(delegate(InventoryItem item)
     {
-        return _inventoryList.Find(delegate(InventoryItem item)
-        {
-            return item.ID == inventoryID;
-        });
-    }
+        return item.ID == inventoryID;
+    });
+}
+{% endhighlight %}
 
 正则表达式简化了上述代码。这是一个使用lambda表达式的Predicate的例子，在“=”右边是lambda表达式。
 
-    public InventoryItem FindInventoryPredicateLambda(int inventoryID)
-    {
-        Predicate<InventoryItem> pred = item => item.ID == inventoryID;
+{% highlight csharp %}
+public InventoryItem FindInventoryPredicateLambda(int inventoryID)
+{
+    Predicate<InventoryItem> pred = item => item.ID == inventoryID;
 
-        return _inventoryList.Find(pred);
-    }
+    return _inventoryList.Find(pred);
+}
+{% endhighlight %}
 
 正则表达式可以读作“符合其ID == inventoryID的元素”。换句话说，元素是”=>"右边的参数。Predicate变量仍然可以重用。在我看来，使用lambda表达式看起来更整洁。进一步简化，Predicate变量支持以lambda表达式的形式直接传给`Find`方法，如下：
 
-    public InventoryItem FindInventory(int inventoryID)
-    {
-        return _inventoryList.Find(item => item.ID == inventoryID);
-    }
+{% highlight csharp %}
+public InventoryItem FindInventory(int inventoryID)
+{
+    return _inventoryList.Find(item => item.ID == inventoryID);
+}
+{% endhighlight %}
 
 The preceding Find examples all output the same with an inventoryID of 5 as shown:
 
@@ -118,34 +133,40 @@ The preceding Find examples all output the same with an inventoryID of 5 as show
 
 一个更有用的List方法叫`Where`，实际上是Enumerable的扩展方法。考虑一下使用此方法的SQL WHERE子句。它允许你得到一个Where Func指定的列表子集。下面是使用delegate的例子：
 
-    public List<InventoryItem> FindItemsWhereLessThanCostFuncDelegate(double unitCost)
+{% highlight csharp %}
+public List<InventoryItem> FindItemsWhereLessThanCostFuncDelegate(double unitCost)
+{
+    Func<InventoryItem, bool> whereFunc = delegate(InventoryItem item)
     {
-        Func<InventoryItem, bool> whereFunc = delegate(InventoryItem item)
-        {
-            return item.UnitCost < unitCost;
-        };
+        return item.UnitCost < unitCost;
+    };
 
-        return _inventoryList.Where(whereFunc).ToList<InventoryItem>();
-    }
+    return _inventoryList.Where(whereFunc).ToList<InventoryItem>();
+}
+{% endhighlight %}
 
 既然这里要返回一个InventoryItem的列表，你必须调用`ToList`因为Where返回一个IEnumerable，直到结果被枚举时查询才会执行。
 
 上述例子能用Lambda表达式进行简化：
 
-    public List<InventoryItem> FindItemsWhereLessThanCostFuncLambda(double unitCost)
-    {
-        Func<InventoryItem, bool> whereFunc = item => item.UnitCost < unitCost;
+{% highlight csharp %}
+public List<InventoryItem> FindItemsWhereLessThanCostFuncLambda(double unitCost)
+{
+    Func<InventoryItem, bool> whereFunc = item => item.UnitCost < unitCost;
 
-        return _inventoryList.Where(whereFunc).ToList<InventoryItem>();
-    }
+    return _inventoryList.Where(whereFunc).ToList<InventoryItem>();
+}
+{% endhighlight %}
 
 同样，这里的写法主要是在其他代码中重用Func。最好的简化是简单的直接向`Where`方法传递一个lambda表达式，如下：
 
-    public List<InventoryItem> FindItemsWhereLessThanCost(double unitCost)
-    {
-        return _inventoryList.Where(item => item.UnitCost < unitCost)
-            .ToList<InventoryItem>();
-    }
+{% highlight csharp %}
+public List<InventoryItem> FindItemsWhereLessThanCost(double unitCost)
+{
+    return _inventoryList.Where(item => item.UnitCost < unitCost)
+        .ToList<InventoryItem>();
+}
+{% endhighlight %}
 
 上述Where的例子输出相同的unitCost为2.0的值。
 
@@ -164,10 +185,12 @@ The preceding Find examples all output the same with an inventoryID of 5 as show
 
 在下面的例子中，对每一个inventory元素unit cost被设置成相同的值（单独的Action变量也可以通过委托或lambda表达式创建，然后传给`ForEach`方法）：
 
-    public void UnifyUnitCost(double unitCost)
-    {
-        _inventoryList.ForEach(item => item.UnitCost = unitCost);
-    }
+{% highlight csharp %}
+public void UnifyUnitCost(double unitCost)
+{
+    _inventoryList.ForEach(item => item.UnitCost = unitCost);
+}
+{% endhighlight %}
 
 输出下面的结果：
 
@@ -175,9 +198,11 @@ The preceding Find examples all output the same with an inventoryID of 5 as show
 
 当然我也可以用`ForEach`命令输出结果：
 
-    helper.InventoryList.ForEach(item => Console.WriteLine(
-        "item ID={0}, unit cost = {1}",
-        item.ID.ToString(), item.UnitCost.ToString("C")));
+{% highlight csharp %}
+helper.InventoryList.ForEach(item => Console.WriteLine(
+    "item ID={0}, unit cost = {1}",
+    item.ID.ToString(), item.UnitCost.ToString("C")));
+{% endhighlight %}
 
 ##结论
 
@@ -186,6 +211,6 @@ The preceding Find examples all output the same with an inventoryID of 5 as show
 
 
 
-参见[原文链接]
+
 
 [原文链接]: http://www.intertech.com/Blog/Post/Using-Lambda-Expressions-for-Predicate-Func-and-Action-Arguments-in-Generic-List-Methods.aspx
