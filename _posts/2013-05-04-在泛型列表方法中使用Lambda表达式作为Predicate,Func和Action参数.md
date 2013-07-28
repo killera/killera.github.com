@@ -1,7 +1,9 @@
-##[译]在泛型列表方法中使用Lambda表达式作为Predicate，Func和Action参数
-Category: C#  
-Tags: lambda,expression,generic,list,dotnet,.net,linq  
-Date: 2013-05-04  
+---
+title: [译]在泛型列表方法中使用Lambda表达式作为Predicate，Func和Action参数
+category: C#
+tags: [lambda,expression,generic,list,dotnet,.net,linq]
+layout: post
+---
 
 
 
