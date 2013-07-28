@@ -1,7 +1,7 @@
 ---
 title: Cookies in Python
 category: python
-tags: [cookie, requests, set_cookie, python]
+tags: [cookie, requests]
 layout: page
 ---
 

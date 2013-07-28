@@ -1,7 +1,7 @@
 ---
 title: 在泛型列表方法中使用Lambda表达式作为Predicate, Func和Action参数
 category: .Net
-tags: [lambda, expression, generic,list, linq]
+tags: [Predicate, Func, Action]
 layout: post
 description: fdsfdsafsdaffdsafsad
 ---
