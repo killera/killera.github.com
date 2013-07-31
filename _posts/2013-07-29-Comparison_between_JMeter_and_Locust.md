@@ -1,11 +1,24 @@
 ---
 
-title: Comparison between JMeter and Locust  
+title: Performance testing tools comparison between JMeter and Locust  
 category: test  
 tags: [JMeter, Locust, performance test]  
 layout: post
 
 ---
+
+##Foreword
+
+Performance test is an very important process in medium and large scale projects. It is often the one and only way to find the performance issues before release. 
+
+Our team has been using [JMeter][JMeter] to do performance test in one workstream. [Locust][Locust] is a new performance testing tool, which has been included in [ThoughtWorks' Technology Radar][tw tech radar] in 2012 and 2013. We introduce Locust into our new workstream this year.
+
+In the next, I will give a comprehensive comparison between them.
+
+
+[tw tech radar]: http://www.thoughtworks.com/radar
+[JMeter]: http://jmeter.apache.org/
+[Locust]: http://locust.io/
 
 ##Overview
 
@@ -54,8 +67,8 @@ Following is an overview of the comparison between JMeter and Locust:
 
 ### License:
 
-JMeter is an open source performance test tool developed by Apache.   
-Locust is an open source loading test. It is created by several devs who are fed up with some performance tools (including JMeter).
+JMeter is an open source performance testing tool developed by Apache.   
+Locust is an open source load testing tool. It is created by several devs who are fed up with some performance tools (including JMeter).
 
 Both JMeter and Locust are open source tools. Their licenses both guarantee end users extreme freedom.
 
@@ -69,11 +82,13 @@ Both JMeter and Locust focus on the http request level test. That's to say, the 
 
 ### Maturity:
 
-JMeter's latest release is 2.9, it has over 9000 commits, 65 releases, and 2 contributors.  
+JMeter's latest release is 2.9, it has over 9000 commits, 65 releases, and 2 contributors (gotten from github, the number of committers are 60 in its [Wiki][JMeter Wiki] page).  
 
 Locust's latest release is 0.62, it has about 700 commits, 6 releases, and 19 contributors.  
 
 Locust is a new loading test tool, while JMeter has been used widely.
+
+[JMeter Wiki]: http://wiki.apache.org/jmeter/JMeterCommitters
 
 ### Concurrency:
 
@@ -138,6 +153,17 @@ Locust have commandline support for single run mode. For master-slave mode, it i
 It is more condusive for design thinking when writing test code with Locust, such as unnecessary http request, time-consuming sequence call.
 
 For JMeter, as its scripts is recorded, people often pay less attention to it.
+
+
+## Summary
+
+In the comparison, JMeter is more mature than Locust, it is more easier to integrate it into CI system. The three major advantages of Locust are concurrency, maintainable and customizable. About these 3 parts, there is a detailed introduction in [Locust's features page][Locust Features].
+
+Hope it is helpful for you to choose the most suitable tool according to your needs.
+
+[Locust Features]: http://docs.locust.io/en/latest/what-is-locust.html#features
+
+
 
 
 
