@@ -18,7 +18,7 @@ But there is always a gap between reality and ideality. In most projects, the pe
 
 ## Where is the promised 'working software'?
 
-It is close to the release deadline. The features are almost finished, and team members have the confidence to finish all remaining part two weeks before the release. In the last two weeks, QAs can do some mannual test to see if there are still any defects so that Devs can quickly fix it. Everything seems under control. 
+It is close to the release deadline. The features are almost finished, and team members have the confidence to finish all remaining part two weeks before the release. In the two weeks, QAs can do some mannual test to see if there are still any defects so that Devs can quickly fix it. Everything seems under control. 
 
 But at the moment, the client expresses his concern, the system is very slow, it is unacceptable. They can not deliver it only when the performance problem solved.
 
@@ -34,7 +34,7 @@ Usually, people treat performance testing as a second-class citizen. They think 
 
 Usually, people think that the performance testing is one-off. Do it when need, drop it after done. 
 
-So they spend much time to build continuous integration environment, working on the features to make it correct. They think it is more important to make software correct rather than to make it faster. What's worse, they think it is a toil, and they even don't want to touch it. 
+So they only spend much time to build continuous integration environment, working on the features to make it correct. They think it is more important to make software correct rather than to make it faster. What's worse, they think that the performance testing is a toil, and they even don't want to touch it. 
 
 Working software is far more than correct software. The performance is an unavoidable topic. Without performance, the work is still uncompleted. Sometimes, a bad performance declares the closing of the project.  
 
