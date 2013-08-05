@@ -1,5 +1,5 @@
 ---
-title: Performance testing, the missing link in software delivery  
+title: Performance testing, the forgotten realm in continuous delivery  
 category: test  
 tags: [performance test, continuous delivery]  
 layout: post  
@@ -9,9 +9,9 @@ layout: post
 
 ## Forword
 
-No doubt, performance testing is an important stage in the software delivery. In the book __Continuous Delivery__[^1], there is one chapter talking about the _NonFunctional requirement testing_. It mentioned the performance testing briefly.
+No doubt, performance testing is an important stage in the continuous delivery, especially for medium and large scale projects. In the book __Continuous Delivery__[^1], there is one chapter talking about the _NonFunctional requirement testing_. It mentioned the performance testing briefly.
 
-But there is always a gap between reality and ideality. In most projects, the performance testing is treated as a seperated waterfall stage before realse. It is always operated by a seperated group of people. Sometimes, people just neglected it, and didn't schedule enought time for it. So the performance testing is often performed along with the relase.
+But there is always a gap between reality and ideality. In most projects, the performance testing is treated as a seperated waterfall stage before realse. It is always operated by a seperated group of people. Sometimes, people just neglected it, and didn't spare enought time for it. So the performance testing is often performed along with the relase.
 
 
 [^1]: Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation Jez Humble (Author), David Farley (Author)
@@ -59,7 +59,7 @@ I think we should do performance testing along with the developing work. Conside
 
 If we do performance testing against several featues together. we should always keep in mind that it will slow down the process of the deployment.
 
-Also, performance testing is a long-term work. We usually do performance testing aimed at the user amount at that moment. As time goes on, we need to ensure the system's is still ok after the number of users increases and new features added.
+Also, performance testing is a long-term work. We usually do performance testing aimed at performance requirements at that moment. As time goes on, we need to ensure the system's performance is still satisfied after the number of users increases and new features added.
 
 ## Who will do performance testing?
 
@@ -96,7 +96,7 @@ Another question is "do the users consider the system easy to use?". A good appl
 So when we do performance test, it is important to keep in mind that whether the current system's workflow is good or not.
 
 
-## Conclusion
+## Wrap up
 
 Continous integration (CI) is already not something now in nowaday's software development. It has been accepted widly as a excellent software development process. Continous delivery (CD) also becomes the aim we are pursuing. So, do not make performance testing the Last Mile in delivering working software.
 
