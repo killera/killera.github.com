@@ -8,7 +8,7 @@ layout: post
 
 ## Forewords
 
-We are using [Locust][locust_website] to do performance test. Locust is a scalable load tesing framework written in python. Locust supplies us two brief reports called request report and distribution report. The reports show us some data about the response time, such as average response time per request, medium response time per reqeust,maximum response time per reqeust, RPS (request per second) and distribution of response time with different percentiles.
+We are using [Locust][locust_website] to do performance test. Locust is a scalable load testing framework written in python. Locust supplies us two brief reports called request report and distribution report. The reports show us some data about the response time, such as average response time per request, medium response time per request,maximum response time per request, RPS (request per second) and distribution of response time with different percentiles.
 
 The main page of performance testing is like this:
 
@@ -20,15 +20,15 @@ The distribution report is like this:
 
 We can get some clues from the reports, which help us to do further performance tuning.
 
-But it is not enough. As the performance testing goes on, some performance issues show up. Besides monitoring the server side resource usage, we also want to know how the response trend changes when test running. Thanks the gorgous python 2D plotting library **matplotlib**, we can make any charts we want quickly.
+But it is still not enough. As the performance testing goes on, and some performance issues show up, we need to know more detailed information about our server. Besides monitoring the server side resource usage, we also need to know how the response trend changes when test running. Thanks to the gorgeous python 2D plotting library **matplotlib**, we can make any charts we want quickly.
 
 Let's go!
 
 
 
 [locust_website]: http://locust.io
-[request_chart]: http://killera.github.io/assets/images/locust-homepage.png "Locust requests report"
-[distribution_chart]:http://killera.github.io/assets/images/locust-distribution-csv.png "Locust distribution report"
+[request_chart]: http://K.C.illera.github.io/assets/images/locust-homepage.png "Locust requests report"
+[distribution_chart]: http://killera.github.io/assets/images/locust-distribution-csv.png "Locust distribution report"
 
 ## Introduction to matplotlib
 
@@ -64,7 +64,7 @@ We will get two charts like this:
 
 ![image](http://killera.github.io/assets/images/matplotlib-sample.png)
 
-The left one is a plotting chart, the right one is histgram chart. At the bottom of the graph, it is an interactive navigation bar, by which you can navigate through the data set.
+The left one is a plotting chart, the right one is histogram chart. At the bottom of the graph, it is an interactive navigation bar, by which you can navigate through the data set.
 
 Easy enough, Aha?
 
@@ -74,7 +74,7 @@ The standard locust requests reports are like this:
 
 ![image](http://killera.github.io/assets/images/locust-requests-csv.png)
 
-The data is not so visable, and if we want to have a intuitional overview for all the response time, we still need to do some extra work such as sorting.
+The data is not so visible, and if we want to have a intuitional overview for all the response time, we still need to do some extra work such as sorting.
 
 Why don't we generate a chart once this report generated? Let's try how to do it by matplotlib with the following requirements:
 
@@ -129,20 +129,20 @@ if __name__ == '__main__':
 
 #### *Notes:
 
-* We use the numpy lib's `numpy.genfromtxt` to read the csv file into 2D array.  
+* We use the numpy lib's `numpy.genfromtxt` to read the CSV file into 2D array.  
 * Use `numpy.sort` to sort the data by the median response time.
 * The `pyplot.barh` method is to generate a horizontal bar chart.
 * Use `pyplot.yticks` method to set the ticks of Y axis with the request names.
 * Use `pyplot.grid` method to add grid into the chart.
 * Use `autolabelh` method to add value label beside each bar.
 * Use `pyplot.title` method to add a title, and use `pyplot.supertitle` method to add a super title (This title will be shared if there are multiple charts.)
-* Use `pyplot.savefig` method to save the chart into a file, the format could be jpg, png, pdf, svg, etc.
+* Use `pyplot.savefig` method to save the chart into a file, the format could be jpg, png, pdf, SVG, etc.
 
 The chart would be like this:
 
 ![image](http://killera.github.io/assets/images/locust-requests-bar.png)
 
-We can see very clear from the chart that there are 4 reqeusts with longer median response time, so we can just focus on these requests to make further diagnosis.
+We can see very clear from the chart that there are 4 requests with longer median response time, so we can just focus on these requests to make further diagnosis.
 
 Also, we can get from the chart that the statistical data "Total" also included in the chart. If we do not want it, we can simply skip it when loading the data.
 
@@ -191,7 +191,7 @@ Take a look at the snapshot of the log file:
 With these data, we want to find out the following things:
 
 * The response time trend of each request along with the time going.
-* The histgram of the request count by time.
+* The histogram of the request count by time.
 * The response time distribution per request.
 * The overview of the above information in one chart.
 
@@ -200,8 +200,8 @@ So we task the requirements into the following step:
 1. Find a way for numpy to deal with the datetime and show it along with the axis.
 2. Group all the requests by name and keep the time order meanwhile.
 3. Draw plots for every request.
-4. Draw histgram for every request by time.
-5. Draw histgram for every reqeust by response time.
+4. Draw histogram for every request by time.
+5. Draw histogram for every request by response time.
 6. Draw overview graph of all the requests in one page, and use different colors to distinguish the requests.
 7. Gather all the graphs into one PDF file.
 
@@ -241,7 +241,7 @@ grouped_names = groupby(self.sorted_data['name'])
 
 For **task 3** to **task 5**, we already have the solution in previous introduction.
 
-For **task 6**, we only need to draw all the plots in one graph, just need to keep one thing in mind is that the histgram is about all the requests.
+For **task 6**, we only need to draw all the plots in one graph, just need to keep one thing in mind is that the histogram is about all the requests.
 
 For **task 7**, we have the `PdfPages` class in the matplotlib to help us implementing it. we can simply add one graph into the PDF file by calling the `PdfPages.savefig` method.
 
@@ -265,9 +265,9 @@ The aim of all the work is to eliminate the time spent on the diagnosis as much 
 With the graphs, it seems that we even do not need to open and analyse the log anymore. [Life is beautiful](http://en.wikipedia.org/wiki/Life_Is_Beautiful).
 
 
-## Wrapup
+## Wrap up
 
-The matplotlib is a powerful library for scientific computing and visualization. If you are look for some tools to present charts, the matplotlib is a good choice. Also, If you are working on data analystics and scientific computation, the **numpy**[^1] and **pandas**[^2] will help you a lot and save you much time. 
+The matplotlib is a powerful library for scientific computing and visualization. If you are look for some tools to present charts, the matplotlib is a good choice. Also, If you are working on data analysis and scientific computation, the **numpy**[^1] and **pandas**[^2] will help you a lot and save you much time. 
 
 [^1]: www.numpy.org
 [^2]: http://pandas.pydata.org
