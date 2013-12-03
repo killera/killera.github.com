@@ -43,7 +43,6 @@ Before getting hands dirty, let's follow the convention to get a "hello, world"-
 
 We use the interactive python - ipython to write the code:
 
-
 	ipython --matplotlib
 	
 After started ipython, let's type in the following codes:
