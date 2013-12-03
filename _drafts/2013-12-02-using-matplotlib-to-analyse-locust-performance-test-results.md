@@ -13,6 +13,9 @@ We are using [Locust][locust_website] to do performance test. Locust is a scalab
 The main page of performance testing is like this:
 
 ![image][request_chart]
+
+The distribution report is like this:
+
 ![image][distribution_chart]
 
 We can get some clues from the reports, which help us to do further performance tuning.
@@ -24,8 +27,8 @@ Let's go!
 
 
 [locust_website]: http://locust.io
-[request_chart]:http://localhost:1111 "Locust requests report"
-[distribution_chart]:http://localhost:1111 "Locust distribution report"
+[request_chart]: http://killera.github.io/assets/images/locust-homepage.png "Locust requests report"
+[distribution_chart]:http://killera.github.io/assets/images/locust-distribution-csv.png "Locust distribution report"
 
 ## Introduction to matplotlib
 
