@@ -1,8 +1,8 @@
 ---
-title: Using matplotlib to analyse Locust results
-category: test  
-tags: [performance test, data visualization]  
-layout: post
+title: Using matplotlib to analyse Locust results  
+category: test    
+tags: [performance test, data visualization, python]    
+layout: post  
 
 ---
 
@@ -39,7 +39,7 @@ Let's go!
 >**--http://matplotlib.org**
 
 
-Before getting hands dirty, let's follow the convention to get a "hello, world"-like example.
+Before getting hands dirty, let's follow the convention to start with a "hello, world"-like example.
 
 We use the interactive python - ipython to write the code:
 
