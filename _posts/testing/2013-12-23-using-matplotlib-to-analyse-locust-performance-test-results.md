@@ -1,4 +1,5 @@
 ---
+
 title: Using matplotlib to analyse Locust results  
 category: test    
 tags: [performance test, data visualization, python]    
@@ -8,7 +9,7 @@ layout: post
 
 ## Forewords
 
-We are using [Locust][locust_website] to do performance test. Locust is a scalable load testing framework written in python. Locust supplies us two brief reports called request report and distribution report. The reports show us some data about the response time, such as average response time per request, medium response time per request,maximum response time per request, RPS (request per second) and distribution of response time with different percentiles.
+We are using [Locust][locust_website] to do performance test. Locust is a scalable load testing framework written in python. It supplies us two brief reports called *request report* and *distribution report*. The reports show us some data about the response time, such as average response time per request, medium response time per request,maximum response time per request, RPS (request per second) and distribution of response time with different percentiles.
 
 The main page of performance testing is like this:
 
@@ -29,7 +30,7 @@ Let's go!
 
 
 [locust_website]: http://locust.io
-[request_chart]: http://K.C.illera.github.io/assets/images/locust-homepage.png "Locust requests report"
+[request_chart]: http://Killera.github.io/assets/images/locust-homepage.png "Locust requests report"
 [distribution_chart]: http://killera.github.io/assets/images/locust-distribution-csv.png "Locust distribution report"
 
 ## Introduction to matplotlib
@@ -50,19 +51,18 @@ We use the interactive python - ipython to write the code:
 After started ipython, let's type in the following codes:
 
 {% highlight python %}
-	# -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
+import matplotlib.pyplot as plt
 
-	import matplotlib.pyplot as plt
-
-	x = np.random.randn(1000)
-	plt.subplot(221)
-	plt.plot(x)
-	plt.subplot(222)
-	plt.hist(x)
-	plt.show()
+x = np.random.randn(1000)
+plt.subplot(221)
+plt.plot(x)
+plt.subplot(222)
+plt.hist(x)
+plt.show()
 {% endhighlight %}
 
-We will get two charts like this:
+We will get two charts as followed:
 
 ![image](http://killera.github.io/assets/images/matplotlib-sample.png)
 
@@ -129,7 +129,7 @@ if __name__ == '__main__':
     generate(options.csv_file_name, img_file_name)
 {% endhighlight %}
 
-#### *Notes:
+#### Notes:
 
 * We use the numpy lib's `numpy.genfromtxt` to read the CSV file into 2D array.  
 * Use `numpy.sort` to sort the data by the median response time.
