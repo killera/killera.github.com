@@ -20,7 +20,9 @@ The distribution report is like this:
 
 We can get some clues from the reports, which help us to do further performance tuning.
 
-But it is still not enough. As the performance testing goes on, and some performance issues show up, we need to know more detailed information about our server. Besides monitoring the server side resource usage, we also need to know how the response trend changes when test running. Thanks to the gorgeous python 2D plotting library **matplotlib**, we can make any charts we want quickly.
+But it is still not enough. There are some server-side performance monitoring tools, such as NewRelic, which can give us many detailed reports. A good example of that is the response time chart, from which we can get the average response time in a certain duration. But it still requires us some time to know about the response trend of a certain request. Actually, Locust collects response time in the client-side, so we can get these information easily. 
+
+Why not generate the charts we need just when the performance test finished? Thanks to the gorgeous python 2D plotting library **matplotlib**, we can make any charts we want quickly.
 
 Let's go!
 
@@ -74,7 +76,7 @@ The standard locust requests reports are like this:
 
 ![image](http://killera.github.io/assets/images/locust-requests-csv.png)
 
-The data is not so visible, and if we want to have a intuitional overview for all the response time, we still need to do some extra work such as sorting.
+The data is not very visible, and if we want to have a intuitional overview for all the response time, we still need to do some extra work such as sorting.
 
 Why don't we generate a chart once this report generated? Let's try how to do it by matplotlib with the following requirements:
 
@@ -151,10 +153,12 @@ Ok, still simple enough, right? Let's do something more exciting.
 
 ## Generate Locust request trend chart
 
-#### Motivation
+#### Why we need it?
+
 The motivation that we want the locust request trend is that we found the response time of some requests increasing rapidly when doing test. From the previous report and chart, we can not get the answer. Although we have installed performance monitoring tools in the server side. We can not get the information in a high granularity. Also, we want this information as soon as possible, it is better to let us know that just after we finish the performance test.
 
 #### How to collect data
+
 If you do not care about how we get the data, you can directly go to the next paragraph. Locust has the ability to record all the responses by adding a hook to the `request_success` event. The code segments for collecting the data would be like this:
 
 {% highlight python %}
