@@ -1,7 +1,8 @@
 ---
-title:Python 数据可视化编程实战
+title: Python 数据可视化编程实战
 category: book
-tags:[translations, python, matplotlib, visualization]
+tags: [translations, python, matplotlib, visualization]
+layout: post
 
 ---
 
