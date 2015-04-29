@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Welcome to KillerA's Blog!
-tagline: Coding for fun
+title: Overview
+tagline: 
 ---
 {% include JB/setup %}
 
