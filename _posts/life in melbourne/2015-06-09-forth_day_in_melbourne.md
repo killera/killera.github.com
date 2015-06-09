@@ -38,9 +38,19 @@ layout: post
 
 ![image](http://killera.github.io/assets/images/mel/IMG_0003.JPG)
 
-![image](http://killera.github.io/assets/images/mel/IMG_0013.JPG)![image](http://killera.github.io/assets/images/mel/IMG_0021.JPG)![image](http://killera.github.io/assets/images/mel/IMG_0026.JPG)![image](http://killera.github.io/assets/images/mel/IMG_0027.JPG)![image](http://killera.github.io/assets/images/mel/IMG_0031.JPG)![image](http://killera.github.io/assets/images/mel/IMG_0035.JPG)![image](http://killera.github.io/assets/images/mel/IMG_0039.JPG)![image](http://killera.github.io/assets/images/mel/IMG_9987.JPG)![image](http://killera.github.io/assets/images/mel/IMG_9988.JPG)![image](http://killera.github.io/assets/images/mel/IMG_9990.JPG)![image](http://killera.github.io/assets/images/mel/IMG_9997.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_0013.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_0021.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_0026.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_0027.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_0031.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_0035.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_0039.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_9987.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_9988.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_9990.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_9997.JPG)
 在回来的路上：
-![image](http://killera.github.io/assets/images/mel/IMG_0045.JPG)![image](http://killera.github.io/assets/images/mel/IMG_0072.JPG)
+![image](http://killera.github.io/assets/images/mel/IMG_0045.JPG)![image](http://killera.github.io/assets/images/mel/IMG_0072.JPG)
 ####今天
 上班第一天还算顺利，公司人很好，当初给我面试的头带我楼上楼下各种串门，但最终一个名字都没记住:( 没办法，弱项。
 
