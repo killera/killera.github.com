@@ -84,7 +84,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : qszhuan
+      short_name : killera
     livefyre :
       site_id : 123
     intensedebate :
