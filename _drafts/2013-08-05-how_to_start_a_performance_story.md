@@ -8,7 +8,7 @@ layout: post
 
 In the previous [post][performance_forgottern_realm], I have suggested that it is an appropriate time to do performance test after a story or a feature is done. So, how to write a performance test story?
  
-[performance_forgottern_realm]: http://killera.github.io/test/2013/08/02/performance_testing_the_forgotten_realm_in_continous_delivery/   
+[performance_forgottern_realm]: http://qszhuan.github.io/test/2013/08/02/performance_testing_the_forgotten_realm_in_continous_delivery/   
 
 ## What need to be considered in performance test?
 

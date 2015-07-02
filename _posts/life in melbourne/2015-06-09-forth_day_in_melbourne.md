@@ -29,34 +29,51 @@ layout: post
 附近的一条河，没有布里斯班的河漂亮，但心里还是亮堂了许多。
 
 <figure>
-<img src="http://killera.github.io/assets/images/yarra_river.jpg">
+<img src="http://qszhuan.github.io/assets/images/yarra_river.jpg">
 <figcaption>Yarra river
 </figcaption>
 </figure>
 
 接着逛了附近的皇家植物园（royal botanic garden）从角上一个小的不能再小的门进去：
 
-![image](http://killera.github.io/assets/images/mel/IMG_0003.JPG)
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0003.JPG)
 
-![image](http://killera.github.io/assets/images/mel/IMG_0013.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_0021.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_0026.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_0027.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_0031.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_0035.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_0039.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_9987.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_9988.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_9990.JPG)
-![image](http://killera.github.io/assets/images/mel/IMG_9997.JPG)
-在回来的路上：
-![image](http://killera.github.io/assets/images/mel/IMG_0045.JPG)![image](http://killera.github.io/assets/images/mel/IMG_0072.JPG)
-####今天
-上班第一天还算顺利，公司人很好，当初给我面试的头带我楼上楼下各种串门，但最终一个名字都没记住:( 没办法，弱项。
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0013.JPG)
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0021.JPG)
 
-下午，一个要离职的斯里兰卡小哥找我聊了会，算是把组内的几个人记住了。中午抽空去办了医保卡，剩下的事情就剩下车和房了，一步步来。
-上班第一天感觉还不错，但新员工的紧张还是有的，慢慢熟悉。
-现在正值墨尔本的冬天，早晨7点天开始亮，下午5：30天已经开始黑了。
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0026.JPG)
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0027.JPG)
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0031.JPG)
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0035.JPG)
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0039.JPG)
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_9987.JPG)
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_9988.JPG)
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_9990.JPG)
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_9997.JPG)
+
+在回来的路上：
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0045.JPG)
+
+![image](http://qszhuan.github.io/assets/images/mel/IMG_0072.JPG)
+
+
+####今天
+上班第一天还算顺利，公司人很好，当初给我面试的头带我楼上楼下各种串门，但最终一个名字都没记住:( 没办法，弱项。
+
+下午，一个要离职的斯里兰卡小哥找我聊了会，算是把组内的几个人记住了。
+
+中午抽空去办了医保卡，剩下的事情就剩下车和房了，一步步来。
+上班第一天感觉还不错，但新员工的紧张还是有的，慢慢熟悉。
+现在正值墨尔本的冬天，早晨7点天开始亮，下午5：30天已经开始黑了。
 
 
 
