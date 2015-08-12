@@ -30,8 +30,8 @@ Let's go!
 
 
 [locust_website]: http://locust.io
-[request_chart]: http://qszhuan.github.io/assets/images/locust-homepage.png "Locust requests report"
-[distribution_chart]: http://qszhuan.github.io/assets/images/locust-distribution-csv.png "Locust distribution report"
+[request_chart]: /assets/images/locust-homepage.png "Locust requests report"
+[distribution_chart]: /assets/images/locust-distribution-csv.png "Locust distribution report"
 
 ## Introduction to matplotlib
 
@@ -64,7 +64,7 @@ plt.show()
 
 We will get two charts as followed:
 
-![image](http://qszhuan.github.io/assets/images/matplotlib-sample.png)
+![image](/assets/images/matplotlib-sample.png)
 
 The left one is a plotting chart, the right one is histogram chart. At the bottom of the graph, it is an interactive navigation bar, by which you can navigate through the data set.
 
@@ -74,7 +74,7 @@ Easy enough, Aha?
 
 The standard locust requests reports are like this:
 
-![image](http://qszhuan.github.io/assets/images/locust-requests-csv.png)
+![image](/assets/images/locust-requests-csv.png)
 
 The data is not very visible, and if we want to have a intuitional overview for all the response time, we still need to do some extra work such as sorting.
 
@@ -142,7 +142,7 @@ if __name__ == '__main__':
 
 The chart would be like this:
 
-![image](http://qszhuan.github.io/assets/images/locust-requests-bar.png)
+![image](/assets/images/locust-requests-bar.png)
 
 We can see very clear from the chart that there are 4 requests with longer median response time, so we can just focus on these requests to make further diagnosis.
 
@@ -188,7 +188,7 @@ The data collected should be in the following format:
 
 Take a look at the snapshot of the log file:
 
-![image](http://qszhuan.github.io/assets/images/locust-success-log.png)
+![image](/assets/images/locust-success-log.png)
 
 #### Requirements and tasking
 
@@ -251,11 +251,11 @@ For **task 7**, we have the `PdfPages` class in the matplotlib to help us implem
 
 The overview graph of all the requests might be like this:
 
-![image](http://qszhuan.github.io/assets/images/locust-request-overview.png)
+![image](/assets/images/locust-request-overview.png)
 
 The single request graph might be like this:
 
-![image](http://qszhuan.github.io/assets/images/locust-request-distribution.png)
+![image](/assets/images/locust-request-distribution.png)
 
 
 You can get all sample codes by visiting this [link][python-foo-bar] in Github.

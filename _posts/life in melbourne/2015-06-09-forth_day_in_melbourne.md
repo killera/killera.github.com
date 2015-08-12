@@ -29,41 +29,41 @@ layout: post
 附近的一条河，没有布里斯班的河漂亮，但心里还是亮堂了许多。
 
 <figure>
-<img src="http://qszhuan.github.io/assets/images/yarra_river.jpg">
+<img src="/assets/images/yarra_river.jpg">
 <figcaption>Yarra river
 </figcaption>
 </figure>
 
 接着逛了附近的皇家植物园（royal botanic garden）从角上一个小的不能再小的门进去：
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0003.JPG)
+![image](/assets/images/mel/IMG_0003.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0013.JPG)
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0021.JPG)
+![image](/assets/images/mel/IMG_0013.JPG)
+![image](/assets/images/mel/IMG_0021.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0026.JPG)
+![image](/assets/images/mel/IMG_0026.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0027.JPG)
+![image](/assets/images/mel/IMG_0027.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0031.JPG)
+![image](/assets/images/mel/IMG_0031.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0035.JPG)
+![image](/assets/images/mel/IMG_0035.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0039.JPG)
+![image](/assets/images/mel/IMG_0039.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_9987.JPG)
+![image](/assets/images/mel/IMG_9987.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_9988.JPG)
+![image](/assets/images/mel/IMG_9988.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_9990.JPG)
+![image](/assets/images/mel/IMG_9990.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_9997.JPG)
+![image](/assets/images/mel/IMG_9997.JPG)
 
 在回来的路上：
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0045.JPG)
+![image](/assets/images/mel/IMG_0045.JPG)
 
-![image](http://qszhuan.github.io/assets/images/mel/IMG_0072.JPG)
+![image](/assets/images/mel/IMG_0072.JPG)
 
 
 ####今天
