@@ -6,10 +6,10 @@ layout: post
 
 ---
 
-一个月前，在一个node + react项目中，我们使用了(webpack)[https://webpack.github.io/]作为js和css的打包工具。总的说来还是不错的，比较容易上手和使用。但是由于时间比较紧，没有花太多的时间仔细研究webpack。在正在进行的另一个项目中，我们已经决定继续尝试webpack + react，并且有打算用webpack替换掉ASP.NET Bundles，所以正好有时间好好学习总结一下：
+一个月前，在一个node + react项目中，我们使用了[webpack](https://webpack.github.io/)作为js和css的打包工具。总的说来还是不错的，比较容易上手和使用。但是由于时间比较紧，没有花太多的时间仔细研究webpack。在正在进行的另一个项目中，我们已经决定继续尝试webpack + react，并且有打算用webpack替换掉ASP.NET Bundles，所以正好有时间好好学习总结一下：
 
 ## 安装
-首先需要安装(node.js)[https://nodejs.org/en/],然后运行命令：
+首先需要安装[node.js](https://nodejs.org/en/),然后运行命令：
 `npm install webpack -g`
  
 ## 示例
