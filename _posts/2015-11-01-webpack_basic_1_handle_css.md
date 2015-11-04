@@ -153,7 +153,7 @@ module.exports = {
  
  安装plugin: 
  
- `npm install `,
+ `npm install extract-text-webpack-plugin`,
  
  修改config文件：
  
