@@ -1,5 +1,5 @@
 ---
-title: Webpack 学习笔记-1-处理css  
+title: Webpack 学习笔记-2-在文件命中添加hash  
 category: webpack  
 tags: [webpack, javascript]  
 layout: post  
@@ -29,6 +29,7 @@ document.write(require("./content.js"));
 
 运行`webpack entry.js bundle.js`, 
 生成的bundle文件中函数的参数列表为：
+
 {% highlight javascript %}
 /******/ ([
 /* 0 */
