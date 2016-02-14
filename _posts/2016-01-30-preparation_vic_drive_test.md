@@ -59,11 +59,11 @@ layout: post
 
 [![][19]][19]
 
-[![][20]][21]
+[![][20]][20]
+
+[![][21]][21]
 
 [![][22]][22]
-
-[![][23]][23]
 
 
 [1]: /assets/images/driving/1.png
@@ -88,7 +88,4 @@ layout: post
 [20]: /assets/images/driving/20.png
 [21]: /assets/images/driving/21.png
 [22]: /assets/images/driving/22.png
-[23]: /assets/images/driving/23.png
-[24]: /assets/images/driving/24.png
-[25]: /assets/images/driving/25.png
 
