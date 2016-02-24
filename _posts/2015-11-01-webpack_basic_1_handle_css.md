@@ -1,10 +1,11 @@
 ---
-title: Webpack 学习笔记-2-在文件命中添加hash  
+title: Webpack 学习笔记-1-处理CSS  
 category: webpack  
 tags: [webpack, javascript]  
 layout: post  
 
 ---
+
 ### 加载css
 
 Webpack可以直接处理JavaScript文件，但是对于css，image，font等，需要使用loaders将这些资源转换成JavaScript，从而形成一个个模块。
