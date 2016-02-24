@@ -1,6 +1,6 @@
 ---
 title: 《解忧杂货店》书评  
-category: misc  
+category: reading  
 tags: []  
 layout: post  
 
