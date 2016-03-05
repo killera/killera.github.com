@@ -1,6 +1,6 @@
 ---
 title: Remoting tool comparison
-category: tool
+category: tools
 tags: [remoting, pairing, zoom.us, fuze]
 layout: post
 ---
