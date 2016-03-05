@@ -6,6 +6,8 @@ tags: [notebook]
 
 ---
 
+<image src="/assets/images/run.png" style="display:none"/>
+
 这是真的，博客是可以“跑”的，但显然这篇不行。
 
 当然这里说的跑是运行(run)的意思，程序是可以run的，博客也可以。
@@ -42,10 +44,12 @@ Jupyter Notebook文件是以json形式保存的。Github上可以直接预览，
 
 nbviewer提供了更好的渲染服务，把github中文件的路径粘贴到[http://nbviewer.jupyter.org/](http://nbviewer.jupyter.org/)页面的输入框中，就可以看到一个更加美观的页面。
 
-如果你只是想写点东西，借助jupyter也是再好不过了，只需要创建一个代码库，然后把jupyter文件传上去，然后在nbviewer中输入代码库地址，一个博客网站就诞生了。
+[这里](http://nbviewer.jupyter.org/github/qszhuan/qszhuan-notebook/blob/master/data-visualization/Matplotlib%20plotting%20styles.ipynb)是我用jupyter写的一篇关于matplotlib的文章。
 
 
-[这里](http://nbviewer.jupyter.org/github/qszhuan/qszhuan-notebook/blob/master/data-visualization/Matplotlib%20plotting%20styles.ipynb)是我刚写的一篇关于matplotlib的文章。
+如果你只是想写点东西，借助jupyter也是再好不过了，只需要创建一个代码库，把jupyter文件传上去，然后在nbviewer中输入代码库地址，一个博客网站就诞生了。
+
+
 
 
 
