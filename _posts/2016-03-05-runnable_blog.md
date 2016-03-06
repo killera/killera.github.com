@@ -6,7 +6,10 @@ tags: [notebook]
 
 ---
 
-<image src="/assets/images/run.png" style="display:none"/>
+
+<div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+<img src="/assets/images/run.png" width='700'>
+</div>
 
 这是真的，博客是可以“跑”的，但显然这篇不行。
 
