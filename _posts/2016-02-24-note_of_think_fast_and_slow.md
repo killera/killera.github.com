@@ -5,6 +5,9 @@ tags: [webpack, javascript]
 layout: post  
 
 ---
+<div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+<img src="/assets/images/thinking.png" width='700'>
+</div>
 
 #### 第一系统和第二系统
 
