@@ -1,5 +1,5 @@
 ---
-title: 《岛上书店》读后感 
+title: 《思考，快与慢》读书笔记
 category: reading  
 tags: []  
 layout: post  
