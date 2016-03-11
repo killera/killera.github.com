@@ -1,7 +1,7 @@
 ---
-title: 《思考，快与慢》 读书笔记 
+title: 《岛上书店》读后感 
 category: reading  
-tags: [webpack, javascript]  
+tags: []  
 layout: post  
 
 ---
