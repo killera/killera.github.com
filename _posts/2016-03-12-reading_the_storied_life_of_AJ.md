@@ -1,10 +1,11 @@
 ---
 title: 读《岛上书店》  
 category: reading  
-tags: []  
+tags: [reading]  
 layout: post  
 
 ---
+
 <div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
 <img src="/assets/images/bookstore.jpg" width='700'>
 </div>
