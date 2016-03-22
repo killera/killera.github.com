@@ -46,8 +46,5 @@ output: {
 
 一个似乎都还算顺利，但是，如果你使用了上节中提到的从js中分离css bundle的方法，你就会发现css和js文件的hash是一样的，也就是说即使你只更新的js文件的内容，最终生成的css文件名hash也会更新。
 
-一种解决办法就是不在js中引用css，为css单独创建自己的entry；另一种就是在生成bundle文件之前重新计算hash并用该hash作为文件名。
-
-下一次我们会编写一个webpack plugin来重新计算hash值。
- 
+最简单的办法是在webpack配置文件中的文件名部分用`chunkhash`替换`hash`，这样生成的hash就是基于最终的文件计算的了。
 
