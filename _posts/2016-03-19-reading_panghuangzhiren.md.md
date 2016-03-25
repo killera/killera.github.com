@@ -31,10 +31,9 @@ layout: post
 
 [^2]: http://www.houko.com/00/01/S23/168.HTM
 
-[^3]: https://zh.wikipedia.org/wiki/%E5%85%89%E5%B8%82%E6%AF%8D%E5%A5%B3%E6%AE%BA%E5%AE%B3%E4%BA%8B%E4%BB%B6
+[^3]: https://zh.wikipedia.org/wiki/光市母女殺害事件
 
-[^4]: https://ja.wikipedia.org/wiki/%E5%B0%91%E5%B9%B4%E6%AD%BB%E5%88%91%E5%9B%9A
-
+[^4]: https://ja.wikipedia.org/wiki/少年死刑囚
 
 
 
