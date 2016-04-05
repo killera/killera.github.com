@@ -158,7 +158,7 @@ body .content{
 }
 
 @media screen and (max-width: 400px){
-    .entry{
+    .readings .entry{
      visibility: hidden;
     }
     .readings .thumbnails{
@@ -173,7 +173,20 @@ body .content{
         display:none;
     }
 
-    .read-more{
+    .readings .read-more{
         display:none;
     }
+}
+
+.recent-posts .post {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.recent-posts .post .date{
+    color: rgba(0,0,0,0.2);
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
 }
