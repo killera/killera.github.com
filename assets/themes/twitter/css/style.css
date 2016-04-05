@@ -139,13 +139,41 @@ body .content{
         display: none;
     }
 }
+
 .thumbnails{
     width: 0;
     height: 0;
     overflow:hidden;
 }
+
+.readings .post{
+    overflow: hidden;
+    margin: 0 0 10px 0;
+}
 .readings .thumbnails{
     width: 200px;
     height: auto;
     float: right;
+    margin: 0 0 5px 5px;
+}
+
+@media screen and (max-width: 400px){
+    .entry{
+     visibility: hidden;
+    }
+    .readings .thumbnails{
+        width: 200px;
+        height: auto;
+        visibility: visible;
+        float: none;
+        margin: auto;
+
+    }
+    .readings .thumbnails ~p{
+        display:none;
+    }
+
+    .read-more{
+        display:none;
+    }
 }

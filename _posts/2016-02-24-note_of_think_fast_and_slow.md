@@ -1,5 +1,5 @@
 ---
-title: 《思考，快与慢》读书笔记
+title: 读《思考，快与慢》
 category: reading  
 tags: []  
 layout: post  
