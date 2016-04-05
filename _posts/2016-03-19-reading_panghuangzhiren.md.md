@@ -6,8 +6,8 @@ layout: post
 
 ---
 
-<div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
-<img src="/assets/images/panghuangzhiren.jpg" width='700'>
+<div class="thumbnails">
+<img src="/assets/images/panghuangzhiren.jpg" width='200'>
 </div>
 
 这是一本关于青少年犯罪的小说，讲的是女儿被两个青少年强奸致死并被抛尸，女孩的父亲复仇的故事。

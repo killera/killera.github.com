@@ -99,6 +99,53 @@ code, pre {
 }
 
 body{
-
     line-height: 1.43em;
+}
+
+body .content{
+   font-family: monospace, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.archives li{
+    font-size: 1em;
+    line-height: 1em;
+    padding: 10px 0;
+}
+
+.archives ul{
+    margin: 0;
+}
+.archives li{
+   list-style-type: none;
+}
+.archives .post a{
+    text-decoration-color: dark;
+}
+
+.archives .post a:hover{
+    color: #005580;
+}
+
+.archives .post a .date{
+    color: rgba(0,0,0,0.2);
+}
+
+.archives .post .date{
+    float: right;
+}
+
+@media screen and (max-width: 40em){
+    .archives .post .date {
+        display: none;
+    }
+}
+.thumbnails{
+    width: 0;
+    height: 0;
+    overflow:hidden;
+}
+.readings .thumbnails{
+    width: 200px;
+    height: auto;
+    float: right;
 }
