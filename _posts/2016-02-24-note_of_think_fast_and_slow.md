@@ -3,7 +3,7 @@ title: 读《思考，快与慢》
 category: reading  
 tags: []  
 layout: post  
-thumbnail: /assets/images/thinking.png
+thumbnail: /assets/images/thinking.jpg
 ---
 
 
