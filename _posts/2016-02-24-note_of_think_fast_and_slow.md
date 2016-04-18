@@ -3,11 +3,9 @@ title: 读《思考，快与慢》
 category: reading  
 tags: []  
 layout: post  
-
+thumbnail: /assets/images/thinking.png
 ---
-<div  class="thumbnails">
-<img src="/assets/images/thinking.png" width='200'>
-</div>
+
 
 #### 第一系统和第二系统
 

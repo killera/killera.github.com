@@ -3,12 +3,8 @@ title:   读《A Good Man is Hard to Find》
 category: reading   
 tags: [reading]  
 layout: post  
-
+thumbnail: /assets/images/goodman.jpg
 ---
-
-<div class="thumbnails">
-<img src="/assets/images/goodman.jpg" width='200'>
-</div>
 
 在找书的时候忽然看到了《好人难寻》这个名字，想起《岛上书店》中见过这本书名，似乎还是女主人公最喜欢的一本书。于是就决定了要读，并且正好锻炼下自己的英文。
 

@@ -3,12 +3,9 @@ title: 读《彷徨之刃》
 category: reading  
 tags: [reading]  
 layout: post  
-
+thumbnail: /assets/images/panghuangzhiren.jpg
 ---
 
-<div class="thumbnails">
-<img src="/assets/images/panghuangzhiren.jpg" width='200'>
-</div>
 
 这是一本关于青少年犯罪的小说，讲的是女儿被两个青少年强奸致死并被抛尸，女孩的父亲复仇的故事。
 

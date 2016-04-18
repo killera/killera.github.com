@@ -3,12 +3,9 @@ title: 读《追风筝的人》
 category: reading  
 tags: [reading]  
 layout: post  
-
+thumbnail: /assets/images/books/the-kate-runner.jpg
 ---
 
-<div class="thumbnails">
-<img src="/assets/images/books/the-kate-runner.jpg" width='200'>
-</div>
 这本书是卡勒德·胡赛尼(Khaled Hosseini)的处女作，以阿富汗为背景，写的是富家公子阿米尔与仆人哈桑之间的故事，同时也描述了阿富汗的社会与政治转折。
 
 本书有两条主线，成长与梦想。
