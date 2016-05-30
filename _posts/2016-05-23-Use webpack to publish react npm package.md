@@ -244,5 +244,10 @@ with
 {% endhighlight %}
 
 In this way, we got rid of the `loader.jsx` file.
+
+
+The sample code can be found here:
+
+[https://github.com/qszhuan/npm-webpack-react-component-sample/tree/basic](https://github.com/qszhuan/npm-webpack-react-component-sample/tree/basic)
 	
 	
