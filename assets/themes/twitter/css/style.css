@@ -199,3 +199,15 @@ body .content{
     font-weight: bold;
     margin-left: 10px;
 }
+
+.content h3{
+    border-bottom: 1px solid #aaa;
+}
+
+.content h3:before{
+    content:'$ '
+}
+
+h1,h2,h3{
+        margin-top: 1em;
+}

@@ -8,6 +8,12 @@ thumbnail: /assets/images/books/component.jpg
 
 React is a very easy and light-weight way to build componentized website. Sometimes we need to share the components among projects, build component and publish it to npm repository is the most convinient way to share and maintain.
 
+The next will cover:
+
+* Set up private npm server 
+* Write a 'HelloMessage' React Component 
+* Publish npm package & configuration
+
 ### Local npm server
 
 If you want to keep the components private, one way is to use the private function in npm, the other is to set a local(or private) npm server.
@@ -17,8 +23,7 @@ It's very easy to set up a private npm server with [sinopia](https://www.npmjs.c
 Copy the Installation scripts here from it's page:
 
 {% highlight sh %}
-
-# installation and starting (application will create default
+#installation and starting (application will create default
 # config in config.yaml you can edit later)
 $ npm install -g sinopia
 $ sinopia
@@ -142,11 +147,13 @@ Make sure `webpack`, `jsx-loader`, `react` and `react-dom` installed.
 Run `webpack` under root folder to build bundle file.
 
 
-Start a local server to check the result.
 
-`python -m SimpleHTTPServer`
+Start a local server to check the result:
 
-then, visit [http://localhost:8000](http://localhost:8000)
+`python -m SimpleHTTPServer`(or run `python -m http.server` if you are using python3)
+
+
+Then, visit [http://localhost:8000](http://localhost:8000)
 
 
 ### Publish to local npm server
@@ -155,8 +162,87 @@ Actually, if we run `npm publish` under hello folder, we will be able to see it 
 
 This is just pack all the files under hello folder into the npm package.
 
+There are several things we need to consider:
 
-###
+#### The entry
+	
+It's the `main` config in pacakge.json file, the value was set when running `npm init`, in our example, it should be set to `hello.jsx`	
+Sometimes, it's not a good choice to expose a 'jsx' entry file, as you don't really want to look into the npm packages folder to decide what loaders do you need to use to import this module.
+	
+We can use `babel` to compile the jsx files into ES5.
 
-To be continue.....
- 
+Goto the `hello` folder to install babel-cli:
+	
+`npm install --save-dev babel-cli babel-preset-es2015 babel-preset-react`
+	
+Then, add the following to package.json file:
+	
+{% highlight javascript %}
+  "main": "index.js",
+  "scripts": {
+    ...
+    "build": "babel hello.jsx -o hello.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  }
+  {% endhighlight %}
+  
+Run `npm run build` to compile it.
+	
+#### An alternative way to build the component
+
+In some project, react is just used to build some part of one page. In order to simplify the use of component, we can build it as a library(like jquery) to expose a global variable.
+	
+Add this webpack.config.js into hello folder:
+	
+{% highlight javascript %}
+var webpack = require('webpack');
+var path = require('path');
+
+var BUILD_DIR = path.resolve(__dirname, 'dist');
+var APP_DIR = path.resolve(__dirname, '.');
+
+var config = {
+  devtool:'source-map',
+  entry: APP_DIR + '/hello.jsx',
+  output: {
+    path: BUILD_DIR,
+    filename: 'hello.lib.js',
+    library:'HelloMessage',
+    libraryTarget:'var'
+  },
+  module : {
+     loaders: [
+            { test: /\.jsx$/, loader: "jsx-loader" },
+        ],
+  }
+};
+
+module.exports = config;
+{% endhighlight %}
+	
+After run `webpack`, we got a `hello.lib.js` file in dist folder.
+   
+Change the index.html file, replace 
+
+`
+<script src="./dist/loader.js"></script>
+`
+
+with 
+   
+{% highlight javascript %}
+<script src="./hello/dist/hello.lib.js"></script>
+<script>
+    ReactDOM.render(React.createElement(HelloMessage),
+                document.getElementById('content'));
+</script>
+{% endhighlight %}
+
+In this way, we got rid of the `loader.jsx` file.
+	
+	
