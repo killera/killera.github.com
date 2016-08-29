@@ -40,3 +40,6 @@
 
 * docker rm container-name                              -- delete container
 * docker stop/start/restart container-anme              -- stop/start/restart container.
+
+
+* docker exec -it container-id-or-name /bin/bash		--get bash into a running bg container
