@@ -3,6 +3,7 @@ title: 读《中国史纲》
 category: reading  
 tags: [reading]  
 layout: post  
+redirection: "/readings/历史/2016/08/19/reading-history-of-china"
 thumbnail: /assets/images/books/中国史纲.jpg
 ---
 

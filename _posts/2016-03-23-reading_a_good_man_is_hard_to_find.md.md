@@ -3,6 +3,7 @@ title:   读《A Good Man is Hard to Find》
 category: reading   
 tags: [reading]  
 layout: post  
+redirection: "/readings/小说/2016/03/23/reading_a_good_man_is_hard_to_find"
 thumbnail: /assets/images/goodman.jpg
 ---
 

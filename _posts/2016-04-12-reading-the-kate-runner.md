@@ -3,6 +3,7 @@ title: 读《追风筝的人》
 category: reading  
 tags: [reading]  
 layout: post  
+redirection: "/readings/小说/2016/04/12/reading-the-kate-runner"
 thumbnail: /assets/images/books/the-kate-runner.jpg
 ---
 

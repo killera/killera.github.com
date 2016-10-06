@@ -25,4 +25,9 @@ group: navigation
       </article>
     {% endif %}
   {% endfor %}
+  Redirecting.....
 </div>
+
+<script type="text/javascript">
+  // window.location.href = "/readings/"
+</script>

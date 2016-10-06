@@ -3,6 +3,7 @@ title: 读《第一本Docker书》
 category: reading  
 tags: [reading]  
 layout: post  
+redirection: "/readings/软件开发/2016/05/18/reading-the-docker-book"
 thumbnail: /assets/images/books/thedockerbook.jpg
 ---
 

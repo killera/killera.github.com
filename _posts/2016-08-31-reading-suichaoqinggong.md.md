@@ -4,6 +4,7 @@ category: reading
 tags: [reading]  
 layout: post  
 thumbnail: /assets/images/books/岁朝清供.jpg
+redirection: "/readings/小说/2016/08/31/reading-suichaoqinggong"
 ---
 
 《岁朝清供》是这本书的书名，取自书中《岁朝清供》这篇文章。

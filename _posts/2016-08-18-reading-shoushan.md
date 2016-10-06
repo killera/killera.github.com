@@ -3,6 +3,7 @@ title: 读《收山》
 category: reading  
 tags: [reading]  
 layout: post  
+redirection: "/readings/小说/2016/08/18/reading-shoushan"
 thumbnail: /assets/images/books/shoushan.jpg
 ---
 

@@ -3,6 +3,7 @@ title: 读《思考，快与慢》
 category: reading  
 tags: []  
 layout: post  
+redirection: "/readings/心理学/2016/02/24/note_of_think_fast_and_slow"
 thumbnail: /assets/images/thinking.jpg
 ---
 

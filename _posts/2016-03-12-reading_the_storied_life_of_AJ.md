@@ -3,6 +3,7 @@ title: 读《岛上书店》
 category: reading  
 tags: [reading]  
 layout: post  
+redirection: "/readings/小说/2016/03/12/reading_the_storied_life_of_AJ"
 thumbnail: /assets/images/bookstore.jpg
 ---
 

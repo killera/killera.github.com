@@ -3,6 +3,7 @@ title: 读《解忧杂货店》
 category: reading  
 tags: []  
 layout: post  
+redirection: "/readings/小说/2016/01/28/jieyouzahuodian"
 thumbnail: /assets/images/jieyou.jpg
 ---
 

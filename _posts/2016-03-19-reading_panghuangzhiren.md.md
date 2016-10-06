@@ -3,6 +3,7 @@ title: 读《彷徨之刃》
 category: reading  
 tags: [reading]  
 layout: post  
+redirection: "/readings/小说/2016/03/19/reading-panghuangzhiren"
 thumbnail: /assets/images/panghuangzhiren.jpg
 ---
 

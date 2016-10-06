@@ -3,6 +3,7 @@ title: 读《汪曾祺小说经典》
 category: reading  
 tags: [reading]  
 layout: post  
+redirection: "/readings/小说/2016/05/01/reading-wangzengqi"
 thumbnail: /assets/images/books/汪曾祺小说经典.jpg
 ---
 
