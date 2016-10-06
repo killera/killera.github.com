@@ -7,7 +7,7 @@ group: navigation
 {% include JB/setup %}
 
 <div class="readings">
-  {% for post in site.posts %}
+<!--   {% for post in site.posts %}
 
     {% if post.category == "reading" %}
       <article class="post">
@@ -24,10 +24,10 @@ group: navigation
         <a href="{{ post.url }}" class="read-more">Read More >> </a>
       </article>
     {% endif %}
-  {% endfor %}
+  {% endfor %} -->
   Redirecting.....
 </div>
 
 <script type="text/javascript">
-  // window.location.href = "/readings/"
+  window.location.href = "/readings/"
 </script>
