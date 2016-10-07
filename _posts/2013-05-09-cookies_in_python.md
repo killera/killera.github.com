@@ -3,6 +3,7 @@ title: Cookies in Python
 category: python
 tags: [cookie, requests]
 layout: page
+lang: en
 ---
 
 

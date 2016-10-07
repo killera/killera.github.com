@@ -4,7 +4,7 @@ title: Performance testing tools comparison between JMeter and Locust
 category: test  
 tags: [JMeter, Locust, performance test]  
 layout: post
-
+lang: en
 ---
 
 ## Foreword

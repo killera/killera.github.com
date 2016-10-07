@@ -4,6 +4,8 @@ category: javascript
 tags: [npm, webpack, component, react]  
 layout: post  
 thumbnail: /assets/images/books/component.jpg
+
+lang: en
 ---
 
 React is a very easy and light-weight way to build componentized website. Sometimes we need to share the components among projects, build component and publish it to npm repository is the most convinient way to share and maintain.

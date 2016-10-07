@@ -4,7 +4,7 @@ title: Using matplotlib to analyse Locust results
 category: test    
 tags: [performance test, data visualization, python]    
 layout: post  
-
+lang: en
 ---
 
 ## Forewords

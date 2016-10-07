@@ -3,6 +3,7 @@ title: Out-Null, ErrorActionPreference and ErrorAction
 category: PowerShell
 tags: [ErrorAction, Out-Null, ErrorActionPreference, ErrorVariable]
 layout: post
+lang: en
 ---
 
 ##Out-Null

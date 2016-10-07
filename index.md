@@ -4,33 +4,20 @@ title:
 ---
 {% include JB/setup %}
 
-
-<div class="recent-posts">
-  {% for post in site.posts limit: 3 %}
-      <article class="post">
-        <h2>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-        </h2>
-
-        <div class="entry">
-          {{ post.content }}
-        </div>
-        <div>
-        {% unless post.categories == empty %}
-            <ul class="tag_box inline">
-              <li>
-                <i class="icon-folder-open"></i> 
-                <a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ post.category }}-ref">
-    		        {{ post.category | join: "/" }}
-    	        </a>
-                <span class="date"> {{ post.date | date: "%B %e, %Y" }} </span>
-
-    	      </li>
-            </ul>
-
-        {% endunless %}  
-        </div>
-      
-      </article>
+<h3>English：</h3>
+<ul class="posts">
+  {% for post in site.posts %}
+  {% if post.redirection == null and post.lang == 'en' %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endif %}
   {% endfor %}
-</div>
+</ul>
+
+<h3>中文：</h3>
+<ul class="posts">
+  {% for post in site.posts %}
+  {% if post.redirection == null and post.lang != 'en' %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endif %}
+  {% endfor %}
+</ul>

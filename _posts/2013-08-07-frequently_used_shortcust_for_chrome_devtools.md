@@ -2,7 +2,8 @@
 title: Frequently used shortcuts for Chrome DevTools  
 category: tools  
 tags: [shortcuts, debugging]  
-layout: post
+layout: post  
+lang: en
 
 ---
 

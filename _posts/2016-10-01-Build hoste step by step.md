@@ -3,6 +3,7 @@ title: Build hostsman step by step
 category: python  
 tags: [python, pip, pypi]  
 layout: post  
+lang: en
 ---
 
 Hostsman is a command line tool for managing the hosts file, it is written in python, thus a cross-platform tool. Here is the basic usage:

@@ -2,7 +2,8 @@
 title: Remoting tool comparison
 category: tools
 tags: [remoting, pairing, zoom.us, fuze]
-layout: post
+layout: post  
+lang: en
 ---
 
 When I worked on a project, I need to do remote pairing with my colleagues at the beginning. We spiked several remoting tools，here is the comparison between them:

@@ -3,7 +3,7 @@ layout: post
 title: "Matplotlib plotting styles"
 category: python
 tags: [matplotlib, notebook]
-
+lang: en 
 ---
 
 

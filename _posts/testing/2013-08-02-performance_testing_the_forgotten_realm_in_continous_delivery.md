@@ -3,7 +3,7 @@ title: Performance testing, the forgotten realm in continuous delivery
 category: test  
 tags: [performance test, continuous delivery]  
 layout: post  
-
+lang: en
 ---
 
 

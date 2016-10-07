@@ -3,7 +3,7 @@ title: Add CSP to github pages
 category: technology  
 tags: [security, csp]  
 layout: post  
-
+lang: en
 ---
 
 
