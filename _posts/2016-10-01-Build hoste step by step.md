@@ -1,14 +1,14 @@
 ---
-title: Build hoste step by step  
+title: Build hostsman step by step  
 category: python  
 tags: [python, pip, pypi]  
 layout: post  
 ---
 
-Hoste is a command line tool for managing the hosts file, it is written in python, thus a cross-platform tool. Here is the basic usage:
-![image](/assets/images/hoste-h.png)
+Hostsman is a command line tool for managing the hosts file, it is written in python, thus a cross-platform tool. Here is the basic usage:
+![image](/assets/images/hostsman-help.png)
 
-For more detailed usage, please check the [Wiki page](https://github.com/qszhuan/hoste/wiki/Welcome-to-the-hoste-wiki!).
+For more detailed usage, please check the [Wiki page](https://github.com/qszhuan/hostsman/wiki/Welcome-to-the-hostsman-wiki!).
 
 ## Motivation
 
@@ -29,7 +29,7 @@ That's it.
 
 ### Step 1 - Main logic
 
-Add a hoste.py file and implement the code to read and write hosts file. Please check the  [code here](https://github.com/qszhuan/hoste/blob/master/hoste.py#L12-L78) if interested.
+Add a hostsman.py file and implement the code to read and write hosts file. Please check the  [code here](https://github.com/qszhuan/hostsman/blob/master/hostsman.py#L12-L78) if interested.
 
 ### Step 2 - Command line arguments handling
 
@@ -98,20 +98,20 @@ We summarize the main steps here:
 1. Add initial files, such as setup.py, setup.cfg, MANIFEST.in, README.md, LICENSE.
 2. Packaging. `python setup.py sdist` for source distribution or `python setup.py bdist_wheel` for wheels.
 3. Create [PyPI](https://pypi.python.org/pypi) account.(for the first time)
-4. Register Hoste.`twine register dist/hoste-1.0.8-py2.py3-none-any.whl`
+4. Register Hostsman.`twine register dist/hostsman-1.0.0-py2.py3-none-any.whl`
 5. Upload package. `twine upload dist/*`
 
 ### Step 5 - Done, try to install
 
-Use `pip` to install `hoste`:
+Use `pip` to install `hostsman`:
 
-`pip install hoste`,
+`pip install hostsman`,
 
-Then you can use `hoste` in command line. 
-![image](/assets/images/hoste-usage.png)
+Then you can use `hostsman` in command line. 
+![image](/assets/images/hostsman-usage.png)
 
 ## CI
 
 I added some tests, and want to make sure them pass on different python versions. It's very easy with travis-ci, so the test can run for every commit.
 
-![image](/assets/images/travis-ci-hoste.png)
+![image](/assets/images/travis-ci-hostsman.png)
