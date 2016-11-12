@@ -51,15 +51,15 @@ Raspbian comes pre-installed with plenty of software for education, programming 
 5. Select the SD card drive. Note that the software may have already selected the right drive.
 6. Finally, click Burn to transfer Raspbian to the SD card. You'll see a progress bar that tells you how much is left to do. Once complete, the utility will automatically eject/unmount the SD card so it's safe to remove it from the computer.
 
-## SSH
+### SSH
 
-### ENABLE SSH
+#### ENABLE SSH
 
 The Raspberry Pi has an SSH server enabled by default. The SSH server on your Raspberry Pi may be disabled, in which case you will have to enable it manually. This is done using [`raspi-config`](https://www.raspberrypi.org/documentation/configuration/raspi-config.md):
 
 Enter `sudo raspi-config` in the terminal, first select `advanced options`, then navigate to `ssh`, press `Enter` and select `Enable` or disable ssh server`.
 
-### CONNECT
+#### CONNECT
 
 The default user name and password:
 
