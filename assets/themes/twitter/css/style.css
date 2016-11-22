@@ -204,10 +204,25 @@ body .content{
     border-bottom: 1px solid #aaa;
 }
 
+.content h2{
+    border-bottom:  double #aaa;
+}
+
 .content h3:before{
     content:'$ '
 }
 
+.content h2:before{
+    /*content:'# '*/
+}
+
 h1,h2,h3{
         margin-top: 1em;
+}
+
+.content h1{
+  text-transform: capitalize;
+}
+.content h2, .content h3{
+  text-transform: uppercase;
 }

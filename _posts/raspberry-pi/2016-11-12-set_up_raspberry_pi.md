@@ -67,7 +67,30 @@ Username: __pi__
 
 Password: __raspberry__
 
+
 Use `arp -a` to find out the ip of Pi, then `ssh pi@PI_IP_ADDRESS` to connet to pi.
+
+#### Login without Password
+
+The Link for the solution: [http://www.linuxproblem.org/art_9.html](http://www.linuxproblem.org/art_9.html)
+
+* Run `ssh-keygen -t rsa`  (Skip this step if you already generated the rsa keys)
+* Run `ssh pi@PI_IP_ADDRESS mkdir -p .ssh` to create `.ssh` folder on pi
+* Run `cat .ssh/id_rsa.pub | ssh pi@PI_IP_ADDRESS 'cat >> .ssh/authorized_keys'` to append your public key to pi's authorized_keys file.
+* Then you can login pi without password, `ssh pi@PI_IP_ADDRESS`
+
+#### Create Alias for SSH
+
+* Create `config` file in the `~/.ssh` folder of your laptop if not existed
+* Add the following into the `config` file
+
+```
+Host pi  
+  Hostname PI_IP_ADDRESS  
+  User pi  
+```
+
+* Then you can use `ssh pi` to login to your pi.
 
 ### VNC
 
@@ -89,6 +112,10 @@ Now, enable VNC Server by doing the following:
 Navigate to `Advanced Options.`
 
 Scroll down and select `VNC > Yes`.
+
+#### C. RUN VNCSERVER AT STARTUP
+
+See this link: [https://learn.adafruit.com/adafruit-raspberry-pi-lesson-7-remote-control-with-vnc/running-vncserver-at-startup](https://learn.adafruit.com/adafruit-raspberry-pi-lesson-7-remote-control-with-vnc/running-vncserver-at-startup), it's using tightvncserver, install it first.
 
 
 
