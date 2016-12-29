@@ -66,3 +66,36 @@ function gb($pattern){
 
 
 {% endhighlight %}
+
+## Merge commits
+
+If you have several local commits, and you want to merge them into one when committing, you can use this command:
+
+`git rebase -i` or  
+`git rebase -i head~3` if you only want to handle the first 3 commits.
+
+it will open a window like this:
+
+{% highlight sh %}
+....
+# Rebase 598cf24..598cf24 onto 598cf24 (1 command(s))
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like "squash", but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+{% endhighlight %}
+
+then you can change the commands to `squash`(if you want to keep the commit message) or `fixup`(discard the commit message)
