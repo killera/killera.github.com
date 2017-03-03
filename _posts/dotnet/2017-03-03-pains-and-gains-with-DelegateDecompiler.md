@@ -49,9 +49,9 @@ This one will not load the `Customers` eagerly:
 ```csharp
 
 var program = DbContext.Programs
-                .Decompile()
-                .Include(x=>x.Discounts.Select(b=>b.Customers.Select(c=>c.Customer)))
-                .FirstOrDefault(x => x.Name.Contains("Jan"));
+    .Decompile()
+    .Include(x=>x.Discounts.Select(b=>b.Customers.Select(c=>c.Customer)))
+    .FirstOrDefault(x => x.Name.Contains("Jan"));
 
 ```
 
@@ -60,9 +60,9 @@ This one does:
 ```csharp
 
 var program = DbContext.Programs
-                .Include(x=>x.Discounts.Select(b=>b.Customers.Select(c=>c.Customer)))
-                .Decompile()
-                .FirstOrDefault(x => x.Name.Contains("Jan"));
+    .Include(x=>x.Discounts.Select(b=>b.Customers.Select(c=>c.Customer)))
+    .Decompile()
+    .FirstOrDefault(x => x.Name.Contains("Jan"));
 
 ```
 
