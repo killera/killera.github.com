@@ -209,4 +209,4 @@ function release($name, $base="develop"){
     gitup
 }
 
-{% endhight %}
+{% endhighlight %}
