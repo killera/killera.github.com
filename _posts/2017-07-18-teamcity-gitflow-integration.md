@@ -14,15 +14,15 @@ It provides some command lines to help the developer to save time in switching o
 
 This is very easy. 
 
-* Create a project in TeamCity, and configure the repo Url.
+1. Create a project in TeamCity, and configure the repo Url.
 
-![image](/assets/images/tc-create-project.PNG)
+![image](/assets/images/tc-create-project.jpg)
 
-* Configure the project name as `TeamCity GitFlow`,  and set build configuration name to `Master`. Now we have a new project with a build for the `master` branch changes.
+2. Configure the project name as `TeamCity GitFlow`,  and set build configuration name to `Master`. Now we have a new project with a build for the `master` branch changes.
 
 ![image](/assets/images/tc-name-project.PNG)
 
-* Copy the Master configuration to create another one for `develop` branch.
+3. Copy the Master configuration to create another one for `develop` branch.
 
 ![image](/assets/images/tc-create-develop.PNG)
 
@@ -34,22 +34,22 @@ Make sure they have different VCS roots:
 
 ![image](/assets/images/tc-vcs-root.PNG)
 
-* Then create `Features-Bugfixes` build configuration by coping the `Develop` configuration; create `Releases-Hotfixes` build configuration by coping the `Master` configuration. We will have 4 build configurations as below. 
+4. Then create `Features-Bugfixes` build configuration by coping the `Develop` configuration; create `Releases-Hotfixes` build configuration by coping the `Master` configuration. We will have 4 build configurations as below. 
 
 ![image](/assets/images/tc-all-configurations.PNG)
 
 Now the `Features-Bugfixes` and `Develop` share the same VCS root; `Releases-Hotfixes` and `Master` share the same VCS root. 
 
-* Edit the vcs root for  `Features-Bugfixes`. Change the `VCS root name` to `https://github.com/qszhuan/teamcity-gitflow-integration.git#refs/heads/features-bugfixes`, and edit the Branch specification as below. When click `Save`, there are two options: create a separate one or override the current one as it's used in two places(`Features-Bugfixes` and `Develop`). choose to create a new one.
+5. Edit the vcs root for  `Features-Bugfixes`. Change the `VCS root name` to `https://github.com/qszhuan/teamcity-gitflow-integration.git#refs/heads/features-bugfixes`, and edit the Branch specification as below. When click `Save`, there are two options: create a separate one or override the current one as it's used in two places(`Features-Bugfixes` and `Develop`). choose to create a new one.
 
 ![image](/assets/images/tc-vcs-root-feature.PNG)
 
 
-* Edit the vcs root for  `Releases-Hotfixes`. Change the `VCS root name` to `https://github.com/qszhuan/teamcity-gitflow-integration.git#refs/heads/features-bugfixes`, and edit the Branch specification as below. Finally we will get 4 vcs roots.
+6. Edit the vcs root for  `Releases-Hotfixes`. Change the `VCS root name` to `https://github.com/qszhuan/teamcity-gitflow-integration.git#refs/heads/features-bugfixes`, and edit the Branch specification as below. Finally we will get 4 vcs roots.
 
-![image](/assets/images/tc-vcs-root-feature.PNG)
+![image](/assets/images/tc-vcs-root-release.PNG)
 
-* The last step is to change the `Version Control Settings` to untick the `Allow builds in the default branch` option for `Features-Bugfixes` and `Releases-Hotfixes`.
+7. The last step is to change the `Version Control Settings` to untick the `Allow builds in the default branch` option for `Features-Bugfixes` and `Releases-Hotfixes`.
 
 Now it's done.
 
