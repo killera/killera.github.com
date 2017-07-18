@@ -51,6 +51,12 @@ function gr(){
     git rebase master
 }
 
+#short cmd to get current branch
+function gg(){
+    $currentBranch = git symbolic-ref --short HEAD
+    write-host "Current branch: <$currentBranch>" -f green
+}
+
 #go to branch with a substring match
 function gb($pattern){
     while($pattern -eq $null -or $pattern -eq ""){
@@ -64,6 +70,86 @@ function gb($pattern){
     git co $branch.trim("*").trim()
 }
 
+# set upstream for new created local branch
+function gitup(){
+    # git push --set-upstream origin feature/abc
+
+    $currentBranch = git symbolic-ref --short HEAD
+    $currentBranch = $currentBranch.trim()
+    write-host "Current branch: <$currentBranch>" -f green
+
+    git push --set-upstream origin $currentBranch
+}
+
+# merge latest $branch into current branch.
+function gitm($branch="develop"){
+    $currentBranch = git symbolic-ref --short HEAD
+    write-host "Current branch: <$currentBranch>" -f green
+    git co $branch
+    write-host "Pull branch $branch latest code..." -f green
+    git p
+    write-host "Go back to <$currentBranch>." -f green
+    git co $currentBranch
+
+    write-host "Merging $branch into <$currentBranch>..." -f green
+    git merge $branch
+}
+
+#go to branch
+function gb($pattern){
+    while($pattern -eq $null -or $pattern -eq ""){
+        write-host "please give a sub string in the branch name, here are the branches:" -f red
+        git branch
+
+        $pattern = Read-Host "Switch to: "
+    }
+    
+    $branches = git branch | ?{$_ -like "*$pattern*"}
+    if($branches.count -gt 1){
+        write-host "matches $($branches.count) :" -f green
+        write-host "==================================="
+        0..($branches.count-1) | %{write-host "$_ : $($branches[$_])"}
+        write-host "==================================="
+        $index = Read-Host "Please select the index: "
+
+        $branch = $branches[$index]
+        git co $branch.trim("*").trim()
+    }
+    elseif ($branches.count -eq 1){
+        $branch = $branches | Select-Object -first 1
+        git co $branch.trim("*").trim()
+    }
+}
+
+# clean local branch that deleted remotely
+function git-clean{
+    $currentBranch = git symbolic-ref --short HEAD
+    $currentBranch = $currentBranch.Trim()
+    git remote prune origin
+    $branches = git branch --merged | ?{!($_ -like "*master*" -or $_ -like "*develop*" -or $_ -like "*$currentBranch*")}
+
+    if($branches.count -gt 0){
+        write-host "Clean branches: "
+        $branches | %{ write-host $_ -f yellow}
+        $branches.trim() | %{ git branch -d $_ } 
+    }
+}
+
+# create pr from current branch, will open github page.
+function pr(){
+    if(-not (test-path .git)){
+        write-host "This is not a git repo" -f red
+        return
+    }
+    $remoteUrl = (git config --get remote.origin.url).trim('.git')
+    write-host "Remote: $remoteUrl" -f green
+
+    $currentBranch = git rev-parse --abbrev-ref HEAD
+    $currentBranch = $currentBranch.trim()
+    write-host "Current branch: $currentBranch" -f green
+
+    start "$remoteUrl/tree/$currentBranch"
+}
 
 {% endhighlight %}
 
@@ -99,3 +185,28 @@ it will open a window like this:
 {% endhighlight %}
 
 then you can change the commands to `squash`(if you want to keep the commit message) or `fixup`(discard the commit message)
+
+
+## Git Flow commands
+
+{% highlight sh %}
+
+# shortcuts to create bugfix branch
+function bug($name){
+    git flow bugfix start $name
+    gitup
+}
+
+# shortcuts to create feature branch
+function feature($name){
+    git flow feature start $name
+    gitup
+}
+
+# shortcuts to create release branch
+function release($name, $base="develop"){
+    git flow release start $name $branch
+    gitup
+}
+
+{% endhight %}
