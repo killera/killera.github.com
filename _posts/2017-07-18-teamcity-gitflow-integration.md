@@ -24,7 +24,7 @@ This is very easy.
 
 * Copy the Master configuration to create another one for `develop` branch.
 
-![image](/assets/images/tc-create-build.PNG)
+![image](/assets/images/tc-create-develop.PNG)
 
 Set the names as follow:
 
