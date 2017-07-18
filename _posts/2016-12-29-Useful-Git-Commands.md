@@ -221,8 +221,30 @@ function feature($name){
 
 # shortcuts to create release branch
 function release($name, $base="develop"){
-    git flow release start $name $branch
-    gitup
+    if($name -eq "finish"){
+        git flow release finish
+    }
+    elseif($name -eq "publish"){
+        git flow release publish
+    }
+    else{
+        git flow release start $name $branch
+        gitup
+    }
+}
+
+# shortcuts to create hotfix branch
+function hotfix($name, $base="master"){
+    if($name -eq "finish"){
+        git flow hotfix finish
+    }
+    elseif($name -eq "publish"){
+        git flow hotfix publish
+    }
+    else{
+        git flow hotfix start $name $branch
+        gitup
+    }
 }
 
 {% endhighlight %}
