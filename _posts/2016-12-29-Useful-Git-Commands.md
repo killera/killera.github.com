@@ -193,14 +193,30 @@ then you can change the commands to `squash`(if you want to keep the commit mess
 
 # shortcuts to create bugfix branch
 function bug($name){
-    git flow bugfix start $name
-    gitup
+    if($name -eq "finish"){
+        git flow bugfix finish
+    }
+    elseif($name -eq "publish"){
+        git flow bugfix publish
+    }
+    else{
+        git flow bugfix start $name
+        gitup
+    }
 }
 
 # shortcuts to create feature branch
 function feature($name){
-    git flow feature start $name
-    gitup
+    if($name -eq "finish"){
+        git flow feature finish
+    }
+    elseif($name -eq "publish"){
+        git flow feature publish
+    }
+    else{
+        git flow feature start $name
+        gitup
+    }
 }
 
 # shortcuts to create release branch
