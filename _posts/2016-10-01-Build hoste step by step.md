@@ -6,10 +6,29 @@ layout: post
 lang: en
 ---
 
+<!-- TOC -->
+
+- [Hostsman](#hostsman)
+    - [Motivation](#motivation)
+    - [Requirement](#requirement)
+    - [Development](#development)
+        - [Step 1 - Main logic](#step-1---main-logic)
+        - [Step 2 - Command line arguments handling](#step-2---command-line-arguments-handling)
+        - [Step 3 - Highlighting](#step-3---highlighting)
+            - [HostsLexter](#hostslexter)
+            - [Solve the pygment issue on `cmd.exe`](#solve-the-pygment-issue-on-`cmdexe`)
+        - [Step 4 - Build and publish package](#step-4---build-and-publish-package)
+        - [Step 5 - Done, try to install](#step-5---done-try-to-install)
+    - [CI](#ci)
+
+<!-- /TOC -->
+
+# Hostsman
 `Hostsman` is a command line tool for managing the hosts file, it is written in python, thus a cross-platform tool. Here is the basic usage:
 ![image](/assets/images/hostsman-help.png)
 
 For more detailed usage, please check the [Wiki page](https://github.com/qszhuan/hostsman/wiki/Welcome-to-the-hostsman-wiki!).
+
 
 ## Motivation
 
@@ -82,7 +101,7 @@ def main():
 
 ### Step 3 - Highlighting
 
-In order to make the output more friendly, I decide to use pygments to do the highlighting.
+In order to make the output more friendly, I decide to use `pygments` to do the highlighting.
 
 {% highlight python %}
 def highlight_line(content):
@@ -95,10 +114,10 @@ def print_highlight(*a_list):
 {% endhighlight %}
 
 
-The code above is the first version. There was an issue to show the color in Windows command line window, and the PythonLexer is not ideal to handle the highlight for different elements in the hosts file (such as comment, host name, ip address). So, I made two changes afterwards:
+The code above is the first version. There was an issue to show the color in Windows command line window, and the `PythonLexer` is not ideal to handle the highlight for different elements in the hosts file (such as comment, host name, ip address). So, I made two changes afterwards:
 
 #### HostsLexter
-I didn't find a lexter for hosts file, so I created one. Actually it is very easy. Just follow the documentation of pygments. Here is the code: 
+I didn't find a lexer for hosts file, so I created `HostsLexer`. Actually it is very easy. Just follow the documentation of pygments. Here is the code: 
 
 {% highlight python %}
 class HostsLexer(RegexLexer):
@@ -152,6 +171,8 @@ Use `pip` to install `hostsman`:
 
 Then you can use `hostsman` in command line. 
 ![image](/assets/images/hostsman-usage.png)
+
+**please rememver to use administrator role when executing the add/remove operation.**
 
 ## CI
 
