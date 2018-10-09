@@ -42,7 +42,7 @@ And we add two records into DB.
 --Category
 insert into Category values ('ELEC', 'Electronics')
 --Product
-insert into Product values (1, 'Mobile Phone', 'elec')
+insert into Product values ('Mobile Phone', 'elec')
 ```
 
 The following sql return the same data:
