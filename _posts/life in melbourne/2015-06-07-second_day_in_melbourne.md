@@ -20,7 +20,7 @@ Boxhill火车站在一个楼里面，出了Boxhill火车站，首先映入眼帘
 
 出来后在美食广场转了转，看到一张桌子周围站了一圈中国大叔大妈，一个好像售楼中介的人在激情四射地讲解楼盘信息。最后我在那边吃了一个套餐，面条+俩菜，8$，做的还不错。
 
-![image](/assets/images/大排档.jpg)
+![image](/assets/images/food.jpg)
 	
 ![image](/assets/images/lunch_in_boxhill.jpg)
 
