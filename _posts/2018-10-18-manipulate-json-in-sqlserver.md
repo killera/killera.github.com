@@ -8,7 +8,7 @@ lang: en
 
 Sql Server2016 starts to support JSON data operation. But you still need to make sure the `COMPATIBILITY_LEVEL` >= 130 in case your database is restored/migrated from an older version.
 
-Please check [this link](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-2017) for the mapping of Sql Server version and Compatibility Level.
+Please check [this link](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-2017) for the mapping of Sql Server version and Compatibility Level[^1].
 
 Check the compatilibity level:
 
@@ -20,6 +20,7 @@ Update the value if your Sql Server supports:
 ```sql
 ALTER DATABASE TestDb SET COMPATIBILITY_LEVEL = 130 -- if less than 130.
 ```
+[^1]: There are some performance improvements in greater levels, [This](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-2017#best-practices-for-upgrading-database-compatibility-level) is the comparation of different compatibility levels, please check it for details.
 
 ## Examples
 
@@ -109,7 +110,7 @@ select ISJSON(Orders) from SalesReportJson
 ### JSON_VALUE
 
 **JSON_VALUE** is used to extract a scalar value from a JSON string. 
-If the value is not a scalar value, the result will be `NULL`[^1]. In that case, you should use **JSON_QUERY** instead.
+If the value is not a scalar value, the result will be `NULL`[^2]. In that case, you should use **JSON_QUERY** instead.
 
 For example, if we want to get the first order's order number from the Orders column of **SalesReportJson**, run the following sql:
 
@@ -125,7 +126,7 @@ The result will be:
 | ----------- | ------------ | ---------- |
 | SO43659     | 1            | NULL     |
 
-[^1]: Actually there are two mode: `lax` and `strict`. it returns NULL in lax mode, but return Error in strict mode. Change the expression to `'strict $[0].Order'` to enable strict mode. The lax mode is the default.
+[^2]: Actually there are two mode: `lax` and `strict`. it returns NULL in lax mode, but return Error in strict mode. Change the expression to `'strict $[0].Order'` to enable strict mode. The lax mode is the default.
 
 ### JSON_QUERY
 
