@@ -68,13 +68,6 @@ body h1{
   border: 1px solid #4c964d;
   color: #FFF; }
 
-pre {
-    background-color: #393939;
-    border-radius: 0.71em;
-    color:#f2f2f2;
-    line-height:1.43em
-}
-
 
 blockquote {
     padding: 0.93em 0.93em 1.5em 1.07em;
@@ -97,10 +90,7 @@ blockquote p {
     margin-bottom: 0;
     font-style: italic;
 }
-code, pre {
-    font-family: Monaco, Andale Mono, Courier New, monospace;
-    font-size: 1em;
-}
+
 
 body{
     line-height: 1.43em;
@@ -225,4 +215,71 @@ h1,h2,h3{
 }
 .content h2, .content h3{
   text-transform: uppercase;
+}
+
+
+table {
+    background-color: transparent;
+}
+caption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #777;
+    text-align: left;
+}
+th {
+    text-align: left;
+}
+table {
+    max-width: 90%;
+    margin-bottom: 20px;
+    border: 1px solid #dedede;
+}
+
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+    text-transform: none;
+    background-color: #777;
+    color: white;
+    text-align: left;
+}
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td {
+    border-top: 0;
+}
+
+table > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+table col[class*="col-"] {
+    position: static;
+    display: table-column;
+    float: none;
+}
+table td[class*="col-"],
+table th[class*="col-"] {
+    position: static;
+    display: table-cell;
+    float: none;
+}
+
+table tr td {
+    hyphens: auto;
 }

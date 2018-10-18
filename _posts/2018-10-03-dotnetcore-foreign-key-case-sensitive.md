@@ -3,7 +3,7 @@ title: DotNetCore - Foreign Key case sensitive issue in Entity Framework Core
 category: dotnetcore  
 tags: [dotnetcore, foreign key, navigation property, efcore]  
 layout: post  
-lang: en
+lang: en  
 ---
 
 ### Preparation
