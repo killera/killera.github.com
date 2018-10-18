@@ -21,7 +21,7 @@ Update the value if your Sql Server supports:
 ALTER DATABASE TestDb SET COMPATIBILITY_LEVEL = 130 -- if less than 130.
 ```
 
-# Examples
+## Examples
 
 Following is the sample data:
 
@@ -57,9 +57,9 @@ select @jsonVariable as Orders
 into SalesReportJson 
 ```
 
-# Functions
+## Functions
 
-## OPENJSON
+### OPENJSON
 You can also trasform the JSON Data, and save it to table
 
 ```sql
@@ -98,7 +98,7 @@ The **SalesReport** table will look like:
 | SO43661 | 2011-06-01 00:00:00.000 | AW73565  | 3        |
 
 
-## ISJSON
+### ISJSON
 It is used to check if the data is in a valid json format.
 
 The following sql will return **1**:
@@ -106,7 +106,7 @@ The following sql will return **1**:
 ```sql
 select ISJSON(Orders) from SalesReportJson
 ```
-## JSON_VALUE
+### JSON_VALUE
 
 **JSON_VALUE** is used to extract a scalar value from a JSON string. 
 If the value is not a scalar value, the result will be `NULL`[^1]. In that case, you should use **JSON_QUERY** instead.
@@ -127,7 +127,7 @@ The result will be:
 
 [^1]: Actually there are two mode: `lax` and `strict`. it returns NULL in lax mode, but return Error in strict mode. Change the expression to `'strict $[0].Order'` to enable strict mode. The lax mode is the default.
 
-## JSON_QUERY
+### JSON_QUERY
 
 JSON_QUERY is used to extract object or list from a JSON string. For the previous example, we can use the JSON_QUERY to get the FirstOrder object:
 
@@ -142,7 +142,7 @@ The result will be :
 | {                "Number":"SO43659",                "Date":"2011-05-31T00:00:00"              } | 
  
 
-## JSON_MODIFY
+### JSON_MODIFY
 
 It updates the value of a property in a JSON string and returns the updated JSON string.
 
@@ -181,7 +181,7 @@ The result will be:
 ]
 ```
 
-## FOR JSON
+### FOR JSON
 
 with **FOR JSON**, You can also format query results as JSON.
 
@@ -281,7 +281,7 @@ The result will be:
             "Address": [
                 {
                     "PersonId": 123,
-                    "HomeAddress": "1\/10 High street"
+                    "HomeAddress": "1/10 High street"
                 }
             ]
         }
@@ -289,7 +289,7 @@ The result will be:
 }
 ```
 
-# More on Arrays
+## More on Arrays
 
 We can use index to locate the item in an array. Actually when we use OPEN_JSON to read the array in a JSON string, it will output some other informations:
 
@@ -307,3 +307,26 @@ The result will be:
 
 The first column is `key`, which is the index of each item in the array, the column `type` indicate it's an object value. with the `key`, we can do some conditional modification to some items in an array.
 
+you can apply OPENJSON on the result to extract more infomation for each order:
+
+```sql
+select OrderList.[key] as OrderIndex, 
+        SingleOrder.* 
+from (
+	select Orders.*
+	from SalesReportJson
+	cross apply openjson(Orders)  as Orders
+) as OrderList
+cross apply openjson(value) as [SingleOrder]
+```
+
+The result will be:
+
+| OrderIndex | key           | value                                                                                           | type | 
+|------------|---------------|-------------------------------------------------------------------------------------------------|------| 
+| 0          | Order         | {                "Number":"SO43659",                "Date":"2011-05-31T00:00:00"              } | 5    | 
+| 0          | AccountNumber | AW29825                                                                                         | 1    | 
+| 0          | Item          | {                "Price":100.0,                "Quantity":1              }                      | 5    | 
+| 1          | Order         | {                "Number":"SO43661",                "Date":"2011-06-01T00:00:00"              } | 5    | 
+| 1          | AccountNumber | AW73565                                                                                         | 1    | 
+| 1          | Item          | {                "Price":2024.9940,                "Quantity":3              }                  | 5    | 
