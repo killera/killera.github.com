@@ -1,14 +1,14 @@
 ---
-title: DotNetCore - Foreign Key case sensitive issue in Entity Framework Core
+title: .Net Core - Foreign Key case sensitive issue in Entity Framework Core
 category: dotnetcore  
-tags: [dotnetcore, foreign key, navigation property, efcore]  
+tags: [dotnetcore, foreign key, navigation property, efcore, sql server]  
 layout: post  
 lang: en  
 ---
 
 ### Preparation
 
-In some projects, people use string as primary key of the table(we won't discuss if it's a good or bad design here). Sometimes, people might add the value with different cases in foreign key column. For SqlServer, if you install it with default options, the sql is case insensitive. For example, we have table Product and Category definition as below:
+In some projects, people use string as primary key of the table, this may bring some troubles if they didn't pay attention to the case of the string. For example, people might add the value with lower case as the Primary key in one table, but uppercase as a foreign key column in another table. Sql Server is case insensitive by default. Let's take an example to explain this:
 
 ```sql
 -- Category
@@ -44,8 +44,22 @@ insert into Category values ('ELEC', 'Electronics')
 --Product
 insert into Product values ('Mobile Phone', 'elec')
 ```
+The tables will look like:
 
-The following sql return the same data:
+**Category**:
+
+| Code | Name        | 
+|------|-------------| 
+| ELEC | Electronics | 
+
+**Product**:
+
+| Id | Name         | CategoryCode | 
+|----|--------------|--------------| 
+| 1  | Mobile Phone | elec         | 
+
+
+As sql is case insensitive, the following sqls return the same data:
 ```sql
 -- Category
 select * from Category where Code = 'ELEC'
@@ -58,9 +72,7 @@ select * from Product where CategoryCode = 'elec'
 
 ### Entity Framework Core Implementation
 
-Now we will try to use EntityFrameworkCore to load the data:
-
-The class definition will look like:
+Let's use EntityFrameworkCore to load the data. The entity definition will look like:
 
 ```csharp 
 public class Product
@@ -83,7 +95,7 @@ public class Category
 ```
 
 
-In DbContext class we defined the DbSet for both entities:
+We defined the DbSets in DbContext:
 
 ```csharp
 public class MyDbContext : DbContext
@@ -93,16 +105,7 @@ public class MyDbContext : DbContext
 }
 ```
 
-Then we add records to Product table and Category table.
-
-```sql
---Product
-1, 'Mobile Phone', 'elec'
---Category
-'ELEC', 'Electronics'
-```
-
-Then we try to select the produt data including the category with the following code: 
+Then let's select the produt data including the category with the following code: 
 
 ```csharp
 var product  = dbContext.Products.Include(x => x.Category).SingleOrDefault(x => x.Id == 1);
@@ -119,7 +122,7 @@ The reason is because the `CategoryCode` for Product **[Mobile Phone]** is in lo
 
 The [issue](https://github.com/aspnet/EntityFrameworkCore/issues/673) has already been raised in github, but the target fix release version is `3.0.0`, which means we have to find a workaround.
 
-For now, there are several ways to fix it:
+There are several ways to fix it:
 
 * Update the databse to make the case match.
 
