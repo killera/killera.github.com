@@ -1,7 +1,7 @@
 ---
-title: The things you need to know about Truck-Based-Development
+title: The things you need to know about Trunk-Based-Development
 category: agile  
-tags: [agile, truck based development, feature toggle, feature branches, git flow]  
+tags: [agile, trunk based development, feature toggle, feature branches, git flow]  
 layout: post  
 lang: en
 ---
