@@ -20,6 +20,13 @@ I worked on some performance tuning tasks recently.
 * Use performance monitor(CPU, memory)
 
 
+### Sever related
+
+* Upgrade Database, framework, or operation system
+* Upgrade CUP, memory, hard disk
+* Put time consuming background tasks into separate server, make sure the main web application won't be affected by them.
+
+
 ### Database Related
 
 * Select just enough data only
