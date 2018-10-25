@@ -6,7 +6,7 @@ layout: post
 lang: en  
 ---
 
-Sql Server2016 starts to support JSON data operation. But you still need to make sure the `COMPATIBILITY_LEVEL` >= 130 in case your database is restored/migrated from an older version.
+Sql Server 2016 starts to support JSON data operation. But you still need to make sure the `COMPATIBILITY_LEVEL` >= 130 in case your database is restored/migrated from an older version.
 
 Please check [this link](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-2017) for the mapping of Sql Server version and Compatibility Level[^1].
 
