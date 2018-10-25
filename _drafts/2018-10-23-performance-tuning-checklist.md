@@ -1,13 +1,13 @@
 ---
 title: Performance tuning Checklist
 category: development  
-tags: [sql, dot net, performance tuning, sql server]  
+tags: [sql, dot net, performance tuning, sql server, open xml sdk]  
 layout: post  
 lang: en
 ---
 
 
-I worked on some performance tuning tasks recently.
+I and my team members did some performance tuning tasks recently. I summarized a checklist for performance tuning. I will add more into this checklist once I have some new thoughts.  
 
 ## CheckList
 
