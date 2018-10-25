@@ -7,7 +7,7 @@ lang: en
 ---
 
 
-I and my team members did some performance tuning tasks recently. I summarized a checklist for performance tuning. It only covered our recent work. I will add more into this checklist continuously.  
+I did some performance tuning tasks recently. I summarized a checklist for performance tuning. It only covered our recent work. I will add more into this checklist continuously.  
 
 
 ## Checklist
@@ -44,10 +44,12 @@ I am dealing with SQL Server most of the time, but some points apply to other da
 * Avoid N+1 Select
 * COMPATIBILITY_LEVEL of SQL Server, sometimes it matters, check the [details](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-2017) 
 * MAXDOP, usually you don't need to change this, or don't change it if you are not sure. I did found the instance MAXDOP set to 2 on one production database. Check [Here](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017) and [Here](https://sqltechblog.com/2016/10/04/understanding-the-new-maxdop-settings-in-sql-2016/) 
+* ORM over Stored Procedure
 
 
 ### Code Related
 
+* use cache if needed. 
 * Move expensive filters out of loop
 * Avoid N+1(usually when executing DB query with ORM)
 * Dictionary over List for item lookup.
