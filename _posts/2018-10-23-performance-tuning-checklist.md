@@ -6,6 +6,9 @@ layout: post
 lang: en
 ---
 
+<div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+<img src="/assets/images/performance-monitor.png" width='700'>
+</div>
 
 I did some performance tuning tasks recently. I summarized a checklist for performance tuning. It only covered our recent work. I will add more into this checklist continuously.  
 
@@ -46,14 +49,57 @@ SQL Server is the database that most of the projects I have worked on, but some 
 * MAXDOP, usually you don't need to change this, or don't change it if you are not sure. I did found the instance MAXDOP set to 2 on one production database. Check [Here](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017) and [Here](https://sqltechblog.com/2016/10/04/understanding-the-new-maxdop-settings-in-sql-2016/) 
 * ORM over Stored Procedure
 
+### Front-end code related
 
-### Code Related
+There are some basic rules for good front-end performance, and you can easily get a list from google. 
+
+There are also many front-end frameworks like angular, react, etc, and they have their own performance analysis tools.
+
+Actually there are two very useful functions, which can record the timing.
+
+```javascript
+console.time('A');
+console.timeEnd('A'); 
+output> A: 9308.794921875ms
+//The time is the interval between these two method calls.
+```
+
+I created a wrapper function:
+
+```javascript
+function timing(fn, parentName) {
+
+    var name = new Date().toJSON() + "  ";
+    if (parentName) {
+        name = name + parentName + "-";
+    }
+    name = name + fn.name;
+
+    return function () {
+        console.time(name);
+        const result = fn.apply(this, arguments);
+        console.timeEnd(name);
+        return result;
+    };
+};
+
+// You can test like this:
+// The name is combined by: [timestamp  ] + [parentName-] + [methodname] 
+// Timestamp is used to avoid duplicated name
+timing(await sleep)(1) 
+output> 2018-10-26T11:59:43.402Z  sleep: 1001.0029296875ms
+timing(await sleep, 'Second')(1)  
+output> 2018-10-26T12:01:00.057Z  Second-sleep: 1000.207275390625ms
+
+```
+
+### Back-end Code Related
 
 * use cache if needed. 
 * Move expensive filters out of loop
 * Avoid N+1(usually when executing DB query with ORM)
 * Dictionary over List for item lookup.
-* `Asynchronous and In Parallel (In a Non-Blocking Fashion)` for multiple time consuming query in one request.
+* `Asynchronous and In Parallel (In a Non-Blocking Fashion)` for multiple time consuming queries in one request.
 
 
 ## A real performance tuning example
