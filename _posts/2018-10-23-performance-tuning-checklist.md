@@ -35,7 +35,7 @@ It's about how to improve performance without changing code :)
 
 ### Database Related
 
-I am dealing with SQL Server most of the time, but some points apply to other databases.(I am not an expert of Database, and these are the things that I usually check firstly).
+SQL Server is the database that most of the projects I have worked on, but some points apply to other databases.(I am not an expert of Database, and these are the things that I usually check firstly).
 
 * Check if index is missing, or need rebuild.
 * Check execution plan to get more information
