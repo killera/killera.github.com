@@ -99,7 +99,7 @@ output> 2018-10-26T12:01:00.057Z  Second-sleep: 1000.207275390625ms
 * Move expensive filters out of loop
 * Avoid N+1(usually when executing DB query with ORM)
 * Dictionary over List for item lookup.
-* `Asynchronous and In Parallel (In a Non-Blocking Fashion)` for multiple time consuming queries in one request.
+* **Asynchronous and In Parallel (In a Non-Blocking Fashion)** for multiple time consuming queries in one request.
 
 
 ## A real performance tuning example
@@ -147,7 +147,7 @@ From the results, we can see:
 
 So the action is to solve the part of **C#** and **Excel Writer** first.
 
-###  Step 2 - Fix the part of `C#` 
+###  Step 2 - Fix `C#`
 
 * There are some reference data list used in several level nested loop, use dictionaries to index the data with the query, move them out of loops
 * Extract some variable operation out of the loop, as the value don't change in the loop.
@@ -160,15 +160,15 @@ After this refactoring:
 
 This is amazing! Use the least effort to get a big improvement. Now the download can be finished  ~ 7 min.
 
-### Step 3 - Fix the part of `Excel Writer`
+### Step 3 - Fix `Excel Writer`
 
 The library used is `DocumentFormat.OpenXml.Spreadsheet`, and I found `cell.DataType = CellValues.InlineString;` costs lots of time, try different ways:
 
 | Set CellType By                                                      | Excel Writer(ms) | 
 |----------------------------------------------------------------------|------------------| 
-| `cell.DataType = CellValues.InlineString`                            | 385061           | 
-| `//Don't set `                                                       | 150316           | 
-| `cell.SetAttribute(new OpenXmlAttribute("", "t", "", "inlineStr"));` | 168932           | 
+| cell.DataType = CellValues.InlineString                            | 385061           | 
+| //Don't set                                                        | 150316           | 
+| cell.SetAttribute(new OpenXmlAttribute("", "t", "", "inlineStr")); | 168932           | 
 
 So choose the third way, as there are still some cell type is number.
 
