@@ -84,9 +84,9 @@ I had a deep discussion with my colleague about deferring the payload generation
 2. Generating and keeping payload in Job table is more convenient for supporting. 
 3. Maintaining the metadata also needs effort.
 
-For **2**, after payload after generation, we can still store it in Job table for auditing or supporting. So there are two columns in Job table: column `Metadata` and column `Payload`, and the `Payload` columns is only set during the sync process.
+For **2**, after payload after generation, we can still store it in Job table for auditing or supporting. So there are two columns in Job table: column `Metadata` and column `Payload`, and the `Payload` column is only set during the sync process.
 
-For **1**, I agree that some Job Runner can be independent, like sending email. But some Job Runners have some other operations after Job executed(like Step <span style="text-decoration-line: underline;">**5**</span> to update MainAppOrder status). In this case, the dependency is necessary. 
+For **1**, I agree that some Job Runner can be independent, like sending email. But some Job Runners have some other operations after Job executed(like Step <span style="text-decoration-line: underline;">**5**</span> to update MainAppOrder status). In this case, the dependency is necessary. In step <span style="text-decoration-line: underline;">**5**</span>, the Job Runner will call an api in MainApp to update the MainAppOrder status to synced, which is a good way to reduce the dependency by introducing api call.
 
 For **3**, this is the main point discussed in this blog. Generally speaking, the metadata is more stable than the payload generated with it. We defer the decision to gain more flexibility and save effort.
 
