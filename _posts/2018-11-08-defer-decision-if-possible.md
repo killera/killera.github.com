@@ -77,7 +77,7 @@ Actually there are some benefits/considerations with the current design(storing 
 
 I agree that some Job Runners can be independent, like sending email. But some Job Runners may have some other operations before/after Job executed, like in Step <span style="text-decoration-line: underline;">**5**</span>, after the payload sent, there is an api call to **MainApp** to update MainAppOrder status.
 
-Different Job Runners have different logic to consume the job data(metadata for payload generation), which can be scoped in the specific Job Runner itself. The Job Queue itself(the structure of storing the Job, the way to add/read jobs from the Queue) is generic. If you are familiar with Amazon SQS(Simple Queue Service) or Microsoft Azure Queue Service, you will know what I mean. The consumer of the message data is context related.
+Different Job Runners have different logic to consume the job data(metadata for payload generation), which can be scoped in the specific Job Runner itself. The Job Queue itself(the structure of storing the Job, the way to add/read jobs from the Queue) is generic. The consumer of the message data is context related. If you are familiar with Amazon SQS(Simple Queue Service) or Microsoft Azure Queue Service, you will know what I mean. 
 
 You may ask, "Why do not consider the payload as the message data"? In our example, there are two reasons that we can't think the payload as message data:
 
