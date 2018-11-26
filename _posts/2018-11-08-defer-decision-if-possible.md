@@ -31,7 +31,7 @@ The IntegrationApp api only only supports single order sync, if the user tries t
 
  People using **MainApp** tend to do the synchronization for many orders together after they planned orders for a certain period, so the synchronization process may take several minutes to finish. In order not to block the user after they click the 'Sync' button on the page, we introduced Job Queue into the system, and simply create jobs for the orders. During Job creation, we generate the payload according the api contract, and save it into the database. We defined a **Job** table to store all the jobs, the definition looks like:
 
- ![image](/assets/images/job-table.png)
+ <img src="/assets/images/job-table.png" alt="Job-Table" width="400">
 
 Then, there is a separate **Job Runner** to execute the jobs and sync to data to **IntegrationApp**. The workflow looks like:
 
