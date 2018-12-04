@@ -10,7 +10,7 @@ lang: en
 <img src="/assets/images/performance-monitor.png" width='700'>
 </div>
 
-I did some performance tuning tasks recently. I summarized a checklist for performance tuning. It only covered my recent work. I will add more into this checklist continuously.  
+I did some performance tuning tasks recently. I summarized a checklist for performance tuning in the below:
 
 
 ## Checklist
