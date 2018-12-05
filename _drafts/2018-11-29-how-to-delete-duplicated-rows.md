@@ -32,7 +32,7 @@ The data looks like:
 
 if we consider value pair (OrderId, ProductId) as unique, then Row 1, 2 and 3 are duplicated rows, we need to delete either two of them.
 
-There are several functions for ranking in SQL Server: ROW_NUMBER, RANK, DENSE_RANK, NTILE. 
+There are several functions for ranking in SQL Server: ROW_NUMBER, RANK, DENSE_RANK, NTILE. Let's find out which one to use. 
 
 
 ## Which to use? ROW_NUMBER, RANK, or DENSE_RANK?
