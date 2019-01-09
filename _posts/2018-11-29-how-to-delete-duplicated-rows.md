@@ -51,8 +51,6 @@ That's the different between those three functions.
 
 ### Use ROW_NUMBER() to identify duplication
 
-Let's try `ROW_NUMBER` first. The usage of `ROW_NUMBER` is:
-
 In our case, [OrderId, ProductId] is used for duplication check, and we want to keep the id with max value in each partition. So our sql will look like:
 
 ```sql
