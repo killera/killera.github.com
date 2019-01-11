@@ -7,9 +7,9 @@ lang: en
 
 ---
 
-## EF 6 vs. EF Core
+## EF6 vs. EF Core
 
-In a previous blog [Pains and Gains using DelegateDecompiler](/dotnet/2017/03/03/pains-and-gains-with-DelegateDecompiler), I mentioned a library `DelegateDecompiler` which can used to decompile method body when you use LINQ to query data in EF 6. Is there anything changed in EF Core[^1]?  Let's have a look.
+In a previous blog [Pains and Gains using DelegateDecompiler](/dotnet/2017/03/03/pains-and-gains-with-DelegateDecompiler), I mentioned a library `DelegateDecompiler` which can be used to decompile method body when using LINQ to query data in EF6. Is there anything changed in EF Core[^1]?  Let's have a look.
 
 We have the following data in table `Person` of database TestDB.
 
