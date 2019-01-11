@@ -6,6 +6,7 @@ layout: post
 lang: en
 ---
 
+ > The below code is running with entity framework 6. There are some improvements on Entity Framework Core, please check out my other blog: [dotnetcore - entity framework LINQ evaluation, did you do it wrong?](/dotnetcore/2019/01/10/entity-framework-core-linq-evaluation)
 
 *DelegateDecompiler* is a tool to decompile a delegate or method body to its lambda representaion. 
 
@@ -69,7 +70,5 @@ var program = DbContext.Programs
 As you may have noticed, in the second code snipet. the `Decompile()` method is placed just before the last query.
 
 Especially, if you disabled the *Lazy Loading* in Entity framework, the `Customers` property of `Discount` will be null. This is not acceptable.
-
-
 
 So, remember always put `Decompile()` or `DecompileAsync()` at the end of the LINQ chain.
