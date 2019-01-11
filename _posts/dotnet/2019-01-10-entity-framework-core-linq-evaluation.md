@@ -128,6 +128,8 @@ Another thing to mention is that, both EF Core and `DelegateDecompiler` can not 
 
 ```csharp
 public virtual string FullName => $"{FirstName} {LastName}";
+// Or
+public virtual string FullName => string.Format("{0} {1}", FirstName, LastName);
 ```
 
 
