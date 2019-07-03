@@ -136,19 +136,26 @@ function git-clean{
 }
 
 # create pr from current branch, will open github page.
-function pr(){
+function pr($aimTo="master"){
     if(-not (test-path .git)){
         write-host "This is not a git repo" -f red
         return
     }
-    $remoteUrl = (git config --get remote.origin.url).trim('.git')
+    $remoteUrl = (git config --get remote.origin.url).TrimEnd('.git')
     write-host "Remote: $remoteUrl" -f green
 
     $currentBranch = git rev-parse --abbrev-ref HEAD
     $currentBranch = $currentBranch.trim()
     write-host "Current branch: $currentBranch" -f green
 
-    start "$remoteUrl/tree/$currentBranch"
+    if($remoteUrl.StartsWith("git@github.com:")){
+        $remoteUrl = $remoteUrl.Replace("git@github.com:", "https://github.com/")
+    }
+    if($aimTo -eq $currentBranch){
+        write-host "You are trying to create pull request against the same branch" -f red
+        return
+    }
+    start "$remoteUrl/compare/$aimTo...$($currentBranch)?expand=1"
 }
 
 {% endhighlight %}
