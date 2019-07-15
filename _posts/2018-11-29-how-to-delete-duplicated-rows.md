@@ -80,7 +80,7 @@ In the result we can see the first three rows are with row number 1, 2, 3, and I
 
 ### Try RANK() and DENSE_RANK()
 
-As we mentioned above, Use `RANK` or `DENSE_RANK` will return the same result:
+Use `RANK` or `DENSE_RANK` will return the same result, the reason is the Id column in `ORDER BY` clause is unique, so the rank for each row is different. Let's see the result:
 
 ```sql
 WITH T(Id, OrderId, ProductId)
@@ -90,7 +90,7 @@ WITH T(Id, OrderId, ProductId)
          SELECT 4,1,2)
 
 SELECT *,
-	   ROW_NUMBER() OVER(PARTITION BY OrderId, ProductId ORDER BY ProductId DESC) AS 'ROW_NUMBER',
+	   ROW_NUMBER() OVER(PARTITION BY OrderId, ProductId ORDER BY Id DESC) AS 'ROW_NUMBER',
 	   RANK() OVER(PARTITION BY OrderId, ProductId ORDER BY Id DESC) AS 'RANK',
 	   DENSE_RANK() OVER(PARTITION BY OrderId, ProductId ORDER BY Id DESC) AS 'DENSE_RANK'
  FROM T
