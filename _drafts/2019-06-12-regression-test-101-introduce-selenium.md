@@ -1,5 +1,5 @@
 ---
-title: "Regression Test 101 - Intro"  
+title: "Regression Test 101 - 1 - Selenium Introduction "  
 category: development  
 tags: [ui test, selenium, web driver, regression test, smoke test]  
 layout: post  
@@ -9,21 +9,26 @@ lang: en
 
 Recently I have been writing regression test for my current project. Before I started, there were already many regression tests in the code base, but it's not been maintained for a long time, and the project structure and database changed a lot during the time. My task is to make it run again. 
 
-It seems an easy task, but after I started working on it, I realized that there are more work to do, otherwise, it may be broken and discarded sooner or later. In the following I will talk about some common questions about regression test, and how to solve them. My project is a .net project, and we use xUnit and Selenium webdriver to write regression test. But the solution/concept can also applied to other frameworks.
+It seems an easy task, but after I started working on it, I realized that there are more work to do, otherwise it may be broken and discarded sooner or later. In the following I will talk about some common questions about regression test, and how to solve them. My project is a .net project, and we use xUnit and Selenium webdriver to write regression test. So I will use xUnit and Selenium Webdriver for this series.
 
+In this series, I will cover the following topics:
 
-## Tool selection
-SpecFlow, Selenium
+* Selenium Introduction
+* [Test Infrastructure]({% link _drafts/2019-07-15-regression-test-101-test-infrastructure.md %})
+* Regresion Test Target
+* Data Setup/Clean up
+* Test Orders and Dependencies
+* Parrallel Execution
+* Test Information Collection
+* Reporting and Visualization
 
-
-You don't need to write C# code for regression test, as it's UI test. But if you really want to use C#, there are two options: Selenium Webdriver and SpecFlow.
+Next, let's start with the first topic.
 
 ### Selenium WebDriver
 
-Selenium might be the most popular browser test tool. There are implementations in many languages, such as C#, java, python, ruby, etc.
-There are also many webdirver implementaions, such as ChromeDriver, FirfoxDriver, InternetExplorDriver, etc.
+Selenium might be the most popular browser test tool. There are implementations in different languages, such as C#, java, python, ruby, etc. You can also test your website against different browsers, as there are many webdirver implementaions, such as ChromeDriver, FirfoxDriver, InternetExplorDriver, PhantomJSDriver, etc.
 
-The following is a code snipet from Selenium website[^1]:
+The webbriver includes page navigation, element locating and event trigger. The following is a code snipet from Selenium website[^1]:
 
 ```csharp
 using OpenQA.Selenium;
@@ -77,16 +82,13 @@ class GoogleSuggest
 
 [^1]: https://www.seleniumhq.org/docs/03_webdriver.jsp#introducing-the-selenium-webdriver-api-by-example
 
-### SpecFlow
+### Integration with SpecFlow
 
-SpecFlow is a member of Cucumber family - a widly used Behavior Driven Development tool. It uses the Gherkin syntax(Given-When-Then) to create  feature file and then hook it will C# implementaions. The Gherkin syntax makes the tests more readable.
-
-As SpecFlow is a Behavior Driven Development tool, it's not limited only to UI test.
-
+SpecFlow is a member of Cucumber family -- a widly used Behavior Driven Development tool. It uses the Gherkin syntax(Given-When-Then) to create feature file and then hook it will C# implementaions. The Gherkin syntax makes the tests more readable.
 
 A typical feature file looks like[^2]:
 
-```
+```gherkin
 Feature: Calculator
        In order to avoid silly mistakes
        As a math idiot
@@ -106,18 +108,6 @@ And the c# implementaion is[^2]:
 
 ![image](/assets/images/specflow-example.png)
 
-We have used SpecFlow, Cucumber, Selenium in several different c# projects. 
+SpecFlow itself is not a UI test tool, but you can integrate it with Selenium WebDriver to do regression tests. 
 
-## Data Setup/Clean up
-Create new data for every run. Clean database after run, or restore to a baseline.
-## Test Infrastructure
-Pages definition, Page section definition
-## Test Run Order & Parrallel Excution
-Test Collection, Test Priority, Feature(group tests together)
-web application performance,
-CI build agent performance,
-dependencies(between tests, system related(file upload dialog))
-## Info collection
-page loading time, page navigations, screenshots(selenium level, test failure).
-## Reporting
-Failures, Passed, ratio, duration, test coverage.
+
