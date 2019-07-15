@@ -10,12 +10,12 @@ lang: en
 <img src="/assets/images/performance-monitor.png" width='700'>
 </div>
 
-I did some performance tuning tasks recently. I summarized a checklist for performance tuning in the below:
+I did some performance tuning tasks recently, and summarized a checklist for performance tuning in the below:
 
 
 ## Checklist
 
-### Before start
+### Before Start
 
 These are the things you need to prepare or keep in mind before start working.
 
@@ -27,7 +27,7 @@ These are the things you need to prepare or keep in mind before start working.
 * Sometime, it is only because the server is not powerful enough. 
 
 
-### Sever/System related
+### Sever/System Related
 
 It's about how to improve performance without changing code :)
 
@@ -49,7 +49,7 @@ SQL Server is the database that most of the projects I have worked on, but some 
 * MAXDOP, usually you don't need to change this, or don't change it if you are not sure. I did found the instance MAXDOP set to 2 on one production database. Check [Here](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017) and [Here](https://sqltechblog.com/2016/10/04/understanding-the-new-maxdop-settings-in-sql-2016/) 
 * ORM over Stored Procedure
 
-### Front-end code related
+### Front-End Code Related
 
 There are some basic rules for good front-end performance, and you can easily get a list from google. 
 
@@ -93,7 +93,7 @@ output> 2018-10-26T12:01:00.057Z  Second-sleep: 1000.207275390625ms
 
 ```
 
-### Back-end Code Related
+### Back-End Code Related
 
 * use cache if needed. 
 * Move expensive filters out of loop
@@ -102,9 +102,9 @@ output> 2018-10-26T12:01:00.057Z  Second-sleep: 1000.207275390625ms
 * **Asynchronous and In Parallel (In a Non-Blocking Fashion)** for multiple time consuming queries in one request.
 
 
-## A real performance tuning example
+## A real-world performance tuning example
 
-There is a download API, which is used to download data for some departments. It's slow even only for one department. It never finishes when downloading multiple departments. Because it loads lots of data from DB, we thought it's a SQL query issue.
+There is a download API, which is used to download data for some departments, and store the result in an excel file. We noticed that the api is slow even only for one department. It gets slower when there are more data in the result. It never finishes when downloading all departments data. Before we look into the issue, we thought it might be a database query performance issue, because there are lots of joins and calcuation in the sql query.
 
 This is my local machine configuration:
 
@@ -145,24 +145,26 @@ From the results, we can see:
 * **C#** get worse dramatically when data size increase, need to solve
 * **Excel Writer** get worse dramatically when data size increase, need to solve.
 
-So the action is to solve the part of **C#** and **Excel Writer** first.
+So the action is to fix the part of **C#** and **Excel Writer** first.
 
 ###  Step 2 - Fix `C#`
+
+After looked into the code, we found the following bad smells:
 
 * There are some reference data list used in several level nested loop, use dictionaries to index the data with the query, move them out of loops
 * Extract some variable operation out of the loop, as the value don't change in the loop.
 
-After this refactoring:
+This is the result after this round of refactoring:
 
 | Sample No          | Excel Size | Total Time(ms) | SQL(ms) | C#(ms)  | Excel Writer(ms) | 
 |--------------------|------------|----------------|---------|---------|------------------| 
 | Size 4(2019-1-ALL) | 93000 * HG | 435788         | 37205   | `12854` | `385061`         | 
 
-This is amazing! Use the least effort to get a big improvement. Now the download can be finished  ~ 7 min.
+This is amazing! We reduced the time dramatically by using Dictionary and moving codes out of loops. Now the download can be finished  in ~ 7 min.
 
 ### Step 3 - Fix `Excel Writer`
 
-The library used is `DocumentFormat.OpenXml.Spreadsheet`, and I found `cell.DataType = CellValues.InlineString;` costs lots of time, try different ways:
+The library used for excel generation is `DocumentFormat.OpenXml.Spreadsheet`, and I found `cell.DataType = CellValues.InlineString;` costs lots of time, so I tried different ways:
 
 | Set CellType By                                                      | Excel Writer(ms) | 
 |----------------------------------------------------------------------|------------------| 
@@ -170,9 +172,9 @@ The library used is `DocumentFormat.OpenXml.Spreadsheet`, and I found `cell.Data
 | //Don't set                                                        | 150316           | 
 | cell.SetAttribute(new OpenXmlAttribute("", "t", "", "inlineStr")); | 168932           | 
 
-So choose the third way, as there are still some cell type is number.
+Based on the above result, I choosed the third approach.
 
-But it still cost ~ 3 minutes, and at the same time I found the memory consumption is very high (~13 G). So I continue investigating, and I found that there are two ways to write excel: **Open XML SDK DOM Approach** and **Open XML SDK SAX-Like Approach**. And it's said the later consumes less memory[^1].
+But it still costs ~ 3 minutes, and at the same time I found the memory consumption is very high (~13 G). After further investigation, I found that there are two ways to write excel: **Open XML SDK DOM Approach** and **Open XML SDK SAX-Like Approach**. And it's said that the later consumes less memory[^1].
 
 Here is the result for different approaches:
 
@@ -182,12 +184,12 @@ Here is the result for different approaches:
 | **Open XML SDK SAX-Like Approach** |  85478           | <30% | ~2G    | 
 
 
-Now The Excel Writer only cost ~ 85s. The total download time is ~ 2 min, which is much better than before. I haven't even touch the **SQL** part.
+Now The Excel Writer only cost ~ 85s. The total download time is ~ 2 min, which is much better than before. After talked with PO, this is an acceptable result. 
 
 
 ### Result
 
-Here is the comparison:
+Here is the comparison between the old codes and tuned ones for downloading all departments data:
 
 | Measurement | Before                            | After | 
 |-------------|-----------------------------------|-------| 
@@ -195,7 +197,7 @@ Here is the comparison:
 | CPU         | >90%                              | <30%  |
 | Memory      | 13G                               | 2G    |
 
-Look back the whole process, we found that the issue is totally different with what we thought at the beginning. Following the right process allows us finding the issue quickly.
+When look back the whole performance tuning process, we found that the issue is totally different with what we have thought at the beginning. By following the right process, we identified and fixed issue quickly.
 
 [^1]: [https://blogs.msdn.microsoft.com/brian_jones/2010/06/22/writing-large-excel-files-with-the-open-xml-sdk/](https://blogs.msdn.microsoft.com/brian_jones/2010/06/22/writing-large-excel-files-with-the-open-xml-sdk/)
 
