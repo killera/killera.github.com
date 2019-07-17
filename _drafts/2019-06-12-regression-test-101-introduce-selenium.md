@@ -110,4 +110,5 @@ And the c# implementaion is[^2]:
 
 SpecFlow itself is not a UI test tool, but you can integrate it with Selenium WebDriver to do regression tests. 
 
+In this series, we will not talk about how to write SpecFlow test. One reason is that the existing tests I am working on is written purely with Selenium WebDriver, the other reason is SpecFlow is not very strong related to this series. But I had worked on other projects with SpecFlow regression test, it's worthy to try it out.
 
