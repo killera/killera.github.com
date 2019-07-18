@@ -14,7 +14,7 @@ It seems an easy task, but after I started working on it, I realized that there 
 In this series, I will cover the following topics:
 
 * Selenium Introduction
-* [Test Infrastructure]({% link _drafts/2019-07-15-regression-test-101-test-infrastructure.md %})
+* Test Infrastructure
 * Regresion Test Target
 * Data Setup/Clean up
 * Test Orders and Dependencies
