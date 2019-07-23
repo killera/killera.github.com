@@ -7,13 +7,11 @@ lang: en
 
 ---
 
-This is the third topic in the regression test 101 series. In this series, I will cover the following topics:
+This is one topic in the **regression test 101** series. In this series, I will cover the following topics:
 
-* [Selenium Introduction]({% link _drafts/2019-06-12-regression-test-101-introduce-selenium.md %})
-* Test Architecture
-* Regresion Test Target
-* Data Setup/Clean up
-* Test Orders and Dependencies
+* [Selenium Introduction]({% link _posts/testing/2019-06-12-regression-test-101-introduce-selenium.md %})
+* Test Target
+* Test Design
 * Parrallel Execution
 * Test Information Collection
 * Reporting and Visualization

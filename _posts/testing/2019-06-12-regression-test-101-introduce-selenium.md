@@ -14,10 +14,9 @@ It seems an easy task, but after I started working on it, I realized that there 
 In this series, I will cover the following topics:
 
 * Selenium Introduction
-* Test Infrastructure
-* Regresion Test Target
-* Data Setup/Clean up
-* Test Orders and Dependencies
+* Test Target
+* Test Design
+* Data Setup / Clean up
 * Parrallel Execution
 * Test Information Collection
 * Reporting and Visualization
