@@ -23,7 +23,7 @@ Today's topic is **Regression Test Target**.
 According to Test Pyramid[^1], we should have fewer tests in high-level like UI. So it's not recommended to add too many UI tests.
 
 <figure>
-<img src="/assets/images/testpyramid.png">
+<img src="/assets/images/testPyramid.png">
 <figcaption>https://martinfowler.com/articles/practical-test-pyramid.html
 </figcaption>
 </figure>
