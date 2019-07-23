@@ -20,7 +20,7 @@ In this series, I will cover the following topics:
 * [Challenges]({% link _posts/testing/2019-07-23-regression-test-101-regression-test-challenges.md %})
 
 
-Next, let's start with the first topic.
+Let's start with the first topic.
 
 ### Selenium WebDriver
 
