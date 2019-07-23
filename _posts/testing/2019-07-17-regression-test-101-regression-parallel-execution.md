@@ -9,11 +9,14 @@ lang: en
 
 This is one topic in the **regression test 101** series. In this series, I will cover the following topics:
 
+
 * [Selenium Introduction]({% link _posts/testing/2019-06-12-regression-test-101-introduce-selenium.md %})
-* Test Target
-* Test Design
-* Parrallel Execution
-* Test Information collection & Visualization
+* [Test Target]({% link _posts/testing/2019-07-15-regression-test-101-regression-test-target.md %})
+* [Test Design]({% link _posts/testing/2019-07-16-regression-test-101-regression-test-design.md %})
+* [Parrallel Execution]({% link _posts/testing/2019-07-17-regression-test-101-regression-parallel-execution.md %})
+* [Test Information collection & Visualization]({% link _posts/testing/2019-07-22-regression-test-101-regression-test-visualization-information-collection.md %})
+* [Challenges]({% link _posts/testing/2019-07-23-regression-test-101-regression-test-challenges.md %})
+
 
 Today's topic is **Parrallel Execution**.
 
@@ -42,6 +45,7 @@ As there are different ways to run test, the options name might be different, pl
 In the project, I splitted the tests into several `collections`, and run them parallelly by collections.
 
 ### Prerequisitions
+
 No mater which parallel option to select, we always need to meet the following requirements:
 
 #### 1. No dependencies between tests
@@ -66,4 +70,4 @@ Run regression test parallely may consume lots of system resources, and also may
 
 * Run regression test based on a small database size, as more data means more loading/saving time.
 * Choose the right threads count for different environemnts, if the CI agent is powerful enough, try a bigger threads counts, vise versa.
-* 
+* Remember to clean up data after test run or periodically. 

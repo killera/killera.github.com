@@ -7,19 +7,18 @@ lang: en
 
 ---
 
-Recently I have been writing regression test for my current project. Before I started, there were already many regression tests in the code base, but it's not been maintained for a long time, and the project structure and database changed a lot during the time. My task is to make it run again. 
-
-It seems an easy task, but after I started working on it, I realized that there are more work to do, otherwise it may be broken and discarded sooner or later. In the following I will talk about some common questions about regression test, and how to solve them. My project is a .net project, and we use xUnit and Selenium webdriver to write regression test. So I will use xUnit and Selenium Webdriver for this series.
+Recently I have been writing regression test for my current project. After the work, I think it's worthy to summarize what have done during the process. For myself, it's a reference for further work, I also hope it's a helpful reference to make the regression test more easier for other people. My project is a .net project, and we use **xUnit** and **Selenium webdriver(the C# implemantation)** to write regression test. So I will use xUnit and Selenium Webdriver for this series. But the concept and some solutions are applicable for other test framework and regression tools.
 
 In this series, I will cover the following topics:
 
-* Selenium Introduction
-* Test Target
-* Test Design
-* Data Setup / Clean up
-* Parrallel Execution
-* Test Information Collection
-* Reporting and Visualization
+
+* [Selenium Introduction]({% link _posts/testing/2019-06-12-regression-test-101-introduce-selenium.md %})
+* [Test Target]({% link _posts/testing/2019-07-15-regression-test-101-regression-test-target.md %})
+* [Test Design]({% link _posts/testing/2019-07-16-regression-test-101-regression-test-design.md %})
+* [Parrallel Execution]({% link _posts/testing/2019-07-17-regression-test-101-regression-parallel-execution.md %})
+* [Test Information collection & Visualization]({% link _posts/testing/2019-07-22-regression-test-101-regression-test-visualization-information-collection.md %})
+* [Challenges]({% link _posts/testing/2019-07-23-regression-test-101-regression-test-challenges.md %})
+
 
 Next, let's start with the first topic.
 

@@ -9,12 +9,15 @@ lang: en
 
 This is one topic in the **regression test 101** series. In this series, I will cover the following topics:
 
+
 * [Selenium Introduction]({% link _posts/testing/2019-06-12-regression-test-101-introduce-selenium.md %})
-* Test Target
-* Test Design
-* Parrallel Execution
-* Test Information Collection
-* Reporting and Visualization
+* [Test Target]({% link _posts/testing/2019-07-15-regression-test-101-regression-test-target.md %})
+* [Test Design]({% link _posts/testing/2019-07-16-regression-test-101-regression-test-design.md %})
+* [Parrallel Execution]({% link _posts/testing/2019-07-17-regression-test-101-regression-parallel-execution.md %})
+* [Test Information collection & Visualization]({% link _posts/testing/2019-07-22-regression-test-101-regression-test-visualization-information-collection.md %})
+* [Challenges]({% link _posts/testing/2019-07-23-regression-test-101-regression-test-challenges.md %})
+
+
 
 Today's topic is **Test Design**.
 
