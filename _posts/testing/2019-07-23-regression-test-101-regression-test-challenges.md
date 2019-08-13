@@ -67,3 +67,64 @@ Please remember the `Alert()` and `Accept()` methods may also throw exceptions, 
 #### 5. Cavas in HTML
 
 Selenium can't handle the `Cavas` content in html easily. You may be able to use `Actions` provided by Selenium to control mouse movement to finish some simple operations, but it's still not easy to write. As in my project we only use cavas in one place, I just ignored the test for canvas content.
+
+
+#### 6. Single page application.
+
+If your application makes an ajax call and then re-render a table on the page, it will confuse Selenium, as it does't know the time the page is renderred completely. In my projects, I have to write a wrapper function to keep checking if the expected value appeared.
+
+```csharp
+public bool RetryUntil(Func<bool> func, int timeoutInSeconds=10)
+{
+    var elapsed = 0;
+    var interval = 500;
+
+    while (elapsed < timeoutInSeconds * 1000)
+    {
+        Thread.Sleep(interval);
+        elapsed += interval;
+
+        try
+        {
+            if (func())
+            {
+                return true;
+            }
+        }
+        catch (Exception e)
+        {
+            TakeScreenShot();
+        }
+    }
+    return false;
+}
+
+```
+
+#### 7. Headless
+
+Maybe you want to go headless, so that you will not be interrupted by popped up windows when runing in your local. There are some headless webdrivers. As we are using Chrome WebDriver, we can simply pass in the options to the WebDriver.
+
+```csharp
+var options = new ChromeOptions();
+options.AddArgument("--headless");
+var driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), options);
+```
+
+If you test download functionality, you might need to add extra config to your healess WebDriver.
+
+```
+var downloadPath = @"C:\temp\"
+var enableDownloadCommandParameters = new Dictionary<string, object>
+{
+    {"behavior", "allow"},
+    {"downloadPath", downloadPath}
+};
+((ChromeDriver) driver).ExecuteChromeCommandWithResult("Page.setDownloadBehavior", enableDownloadCommandParameters);
+```
+
+#### 8. Chromium vs Chrome.
+
+If you are using Chrome to do the regression test, you may face with the version issue, as the chrome is configured to update automatically. You may disable this on the agent, but it will failed on develper's machine. An alternative is to use Chromium. In windows, you can use `chocolatey` to install it, and specify the version you want.
+
+
